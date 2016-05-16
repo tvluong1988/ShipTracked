@@ -9,17 +9,29 @@
 import XCTest
 @testable import ShipTracked
 
-class ShipTrackedTests: XCTestCase {
+class ParcelTests: XCTestCase {
   
   // MARK: Tests
+  func testParcelInvalidateTrackingNumber() {
+    let parcelWithInvalidatedTrackingNumber = parcel.invalidateTrackingNumber()
+    
+    XCTAssert(parcelWithInvalidatedTrackingNumber.isTrackingNumberValid == false)
+  }
+  
+  func testParcelValidateTrackingNumber() {
+    let parcelWithValidatedTrackingNumber = parcel.validateTrackingNumber()
+    
+    XCTAssert(parcelWithValidatedTrackingNumber.isTrackingNumberValid == true)
+  }
+  
   func testParcelInit() {
     var parcel: Parcel?
     
-    XCTAssertNil(parcel)
+    XCTAssert(parcel == nil)
     
     parcel = Parcel(trackingNumber: "0000")
     
-    XCTAssertNotNil(parcel)
+    XCTAssert(parcel != nil)
   }
   
   // MARK: Lifecycle
@@ -34,5 +46,5 @@ class ShipTrackedTests: XCTestCase {
   }
   
   // MARK: Properties
-  
+  let parcel = Parcel(trackingNumber: "0000", isTrackingNumberValid: false)
 }

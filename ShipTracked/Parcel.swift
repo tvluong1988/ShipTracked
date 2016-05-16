@@ -10,14 +10,24 @@ import Foundation
 
 struct Parcel {
   
+  // MARK: Functions
+  func validateTrackingNumber() -> Parcel {
+    return Parcel(trackingNumber: self.trackingNumber, isTrackingNumberValid: true)
+  }
+  
+  func invalidateTrackingNumber() -> Parcel {
+    return Parcel(trackingNumber: self.trackingNumber, isTrackingNumberValid: false)
+  }
+  
   // MARK: Lifecycle
-  init(trackingNumber: String) {
+  init(trackingNumber: String, isTrackingNumberValid: Bool = false) {
     self.trackingNumber = trackingNumber
+    self.isTrackingNumberValid = isTrackingNumberValid
     
   }
   
   // MARK: Properties
   var trackingNumber: String
-  var isTrackingNumberValid: Bool = false
+  var isTrackingNumberValid: Bool
   
 }

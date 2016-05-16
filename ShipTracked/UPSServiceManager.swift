@@ -14,7 +14,11 @@ class UPSServiceManager {
   func getParcelWithTrackingNumber(trackingNumber: String) -> Parcel {
     let parcel = Parcel(trackingNumber: trackingNumber)
     
-    return parcel
+    return updateParcelInformationFromAPI(parcel)
+  }
+  
+  private func updateParcelInformationFromAPI(parcel: Parcel) -> Parcel {
+    return parcel.validateTrackingNumber()
   }
   
   // MARK: Properties
