@@ -17,12 +17,33 @@ class UPSServiceManager {
     return updateParcelInformationFromAPI(parcel)
   }
   
-  private func updateParcelInformationFromAPI(parcel: Parcel) -> Parcel {
+  // MARK: Properties
+  
+  // JSON Production Endpoint
+  private let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
+  
+  // JSON Testing Endpoint
+  private let endpointURLTesting = "https://wwwcie.ups.com/json/Track"
+  
+  private let username = "tvluong2"
+  private let password = "t7!zAWK^x1$6"
+  private let accessLicenseNumber = "DD0BE12EB3B46D36"
+  private let requestOption = "7"
+  
+  private let session = NSURLSession.sharedSession()
+  
+  let validTrackingNumberForTesting = "1Z202Y36A898759591"
+  
+}
+
+// MARK: - Private Functions
+private extension UPSServiceManager {
+  func updateParcelInformationFromAPI(parcel: Parcel) -> Parcel {
     sendDataTaskWithTrackingNumber(parcel.trackingNumber)
     return parcel.validateTrackingNumber()
   }
   
-  private func sendDataTaskWithTrackingNumber(trackingNumber: String) {
+  func sendDataTaskWithTrackingNumber(trackingNumber: String) {
     guard let body = createRequestBodyJSONWithTrackingNumber(trackingNumber),
       let request = createNSURLRequestWithBody(body) else {
         return
@@ -32,7 +53,7 @@ class UPSServiceManager {
     
   }
   
-  private func sendDataTaskWithRequest(request: NSURLRequest) {
+  func sendDataTaskWithRequest(request: NSURLRequest) {
     let task = session.dataTaskWithRequest(request) {
       data, response, error in
       
@@ -53,7 +74,7 @@ class UPSServiceManager {
     task.resume()
   }
   
-  private func createNSURLRequestWithBody(body: NSData) -> NSURLRequest? {
+  func createNSURLRequestWithBody(body: NSData) -> NSURLRequest? {
     guard let url = NSURL(string: endpointURLTesting) else {
       return nil
     }
@@ -68,7 +89,7 @@ class UPSServiceManager {
     
   }
   
-  private func createRequestBodyJSONWithTrackingNumber(trackingNumber: String) -> NSData? {
+  func createRequestBodyJSONWithTrackingNumber(trackingNumber: String) -> NSData? {
     
     let bodyDictionary: [String: AnyObject] =
       [
@@ -101,24 +122,6 @@ class UPSServiceManager {
     }
     
   }
-  
-  // MARK: Properties
-  
-  // JSON Production Endpoint
-  private let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
-  
-  // JSON Testing Endpoint
-  private let endpointURLTesting = "https://wwwcie.ups.com/json/Track"
-  
-  private let username = "tvluong2"
-  private let password = "t7!zAWK^x1$6"
-  private let accessLicenseNumber = "DD0BE12EB3B46D36"
-  private let requestOption = "7"
-  
-  private let session = NSURLSession.sharedSession()
-  
-  let validTrackingNumberForTesting = "1Z202Y36A898759591"
-  
 }
 
 
