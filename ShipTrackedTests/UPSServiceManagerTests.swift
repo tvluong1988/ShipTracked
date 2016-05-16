@@ -12,7 +12,11 @@ import XCTest
 class UPSServiceManagerTests: XCTestCase {
   
   // MARK: Tests
-  
+  func testGetParcelWithTrackingNumberValidated() {
+    let parcel = upsServiceManager.getParcelWithTrackingNumber("000")
+    
+    XCTAssert(parcel.isTrackingNumberValid == true)
+  }
   
   // MARK: Lifecycle
   override func setUp() {
@@ -26,5 +30,5 @@ class UPSServiceManagerTests: XCTestCase {
   }
   
   // MARK: Properties
-  
+  let upsServiceManager = UPSServiceManager()
 }
