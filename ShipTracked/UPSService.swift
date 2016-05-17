@@ -22,7 +22,6 @@ class UPSService {
     
   }
   
-  
   // MARK: Properties
   weak var delegate: UPSServiceDelegate?
   
@@ -56,6 +55,17 @@ private extension UPSService {
   func sendDataTaskWithRequest(request: NSURLRequest) {
     let task = session.dataTaskWithRequest(request) {
       data, response, error in
+      
+      let response = response as! NSHTTPURLResponse
+      let statusCodeDescription = NSHTTPURLResponse.localizedStringForStatusCode(response.statusCode)
+      
+      switch response.statusCode {
+      case 200...300:
+        break
+      default:
+        print("status code: \(response.statusCode), description: \(statusCodeDescription)")
+        return
+      }
       
       if let error = error {
         self.delegate?.didCompleteWithError?(error)
