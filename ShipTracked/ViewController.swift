@@ -14,8 +14,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
-    let _ = upsService.requestParcelInfoWithTrackingNumber(upsService.validTrackingNumberForTesting)
-    
+    parcelManager.addParcelWithTrackingNumber(validTrackingNumberForTesting)
   }
   
   override func didReceiveMemoryWarning() {
@@ -24,16 +23,9 @@ class ViewController: UIViewController {
   }
   
   // MARK: Properties
-  lazy var upsService: UPSService = {
-    let manager = UPSService()
-    manager.delegate = self
-    return manager
-  }()
+  let parcelManager = ParcelManager()
+  let validTrackingNumberForTesting = "1Z202Y36A898759591"
+  
 }
 
-extension ViewController: UPSServiceDelegate {
-  func didReceiveData(data: AnyObject) {
-    print("Did receive data: \(data)")
-  }
-}
 

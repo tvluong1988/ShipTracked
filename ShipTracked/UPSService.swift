@@ -38,9 +38,6 @@ class UPSService {
   private let requestOption = "7"
   
   private let session = NSURLSession.sharedSession()
-  
-  let validTrackingNumberForTesting = "1Z202Y36A898759591"
-  
 }
 
 // MARK: - Private Functions
