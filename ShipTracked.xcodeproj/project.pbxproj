@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B21ECBD1CEA645300EAA1D8 /* UPSServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSServiceManager.swift */; };
+		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
-		8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceManagerTests.swift */; };
+		8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */; };
 		8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA71CEA631500B81C1B /* AppDelegate.swift */; };
 		8B429FAA1CEA631500B81C1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA91CEA631500B81C1B /* ViewController.swift */; };
 		8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FAB1CEA631500B81C1B /* Main.storyboard */; };
@@ -38,9 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8B21ECBC1CEA645300EAA1D8 /* UPSServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceManager.swift; sourceTree = "<group>"; };
+		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
-		8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceManagerTests.swift; sourceTree = "<group>"; };
+		8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceTests.swift; sourceTree = "<group>"; };
 		8B429FA41CEA631500B81C1B /* ShipTracked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShipTracked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B429FA71CEA631500B81C1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B429FA91CEA631500B81C1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			children = (
 				8B429FA71CEA631500B81C1B /* AppDelegate.swift */,
 				8B429FA91CEA631500B81C1B /* ViewController.swift */,
-				8B21ECBC1CEA645300EAA1D8 /* UPSServiceManager.swift */,
+				8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */,
 				8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */,
 				8B429FAB1CEA631500B81C1B /* Main.storyboard */,
 				8B429FB11CEA631500B81C1B /* Assets.xcassets */,
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				8B429FBF1CEA631500B81C1B /* ParcelTests.swift */,
-				8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceManagerTests.swift */,
+				8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */,
 				8B429FC11CEA631500B81C1B /* Info.plist */,
 			);
 			path = ShipTrackedTests;
@@ -270,7 +270,7 @@
 			files = (
 				8B429FAA1CEA631500B81C1B /* ViewController.swift in Sources */,
 				8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */,
-				8B21ECBD1CEA645300EAA1D8 /* UPSServiceManager.swift in Sources */,
+				8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */,
 				8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */,
 				8B429FB01CEA631500B81C1B /* ShipTracked.xcdatamodeld in Sources */,
 			);
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceManagerTests.swift in Sources */,
+				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */,
 				8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

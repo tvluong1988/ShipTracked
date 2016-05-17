@@ -8,12 +8,12 @@
 
 import Foundation
 
-@objc protocol UPSServiceManagerDelegate: class {
+@objc protocol UPSServiceDelegate: class {
   optional func didCompleteWithError(error: NSError)
   func didReceiveData(data: AnyObject)
 }
 
-class UPSServiceManager {
+class UPSService {
   
   // MARK: Functions
   func requestParcelInfoWithTrackingNumber(trackingNumber: String) {
@@ -24,7 +24,7 @@ class UPSServiceManager {
   
   
   // MARK: Properties
-  weak var delegate: UPSServiceManagerDelegate?
+  weak var delegate: UPSServiceDelegate?
   
   // JSON Production Endpoint
   private let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
@@ -44,7 +44,7 @@ class UPSServiceManager {
 }
 
 // MARK: - Private Functions
-private extension UPSServiceManager {
+private extension UPSService {
   
   func sendDataTaskWithTrackingNumber(trackingNumber: String) {
     guard let body = createRequestBodyJSONWithTrackingNumber(trackingNumber),

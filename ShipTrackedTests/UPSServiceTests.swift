@@ -9,11 +9,11 @@
 import XCTest
 @testable import ShipTracked
 
-class UPSServiceManagerTests: XCTestCase {
+class UPSServiceTests: XCTestCase {
   
   // MARK: Tests
   func testGetParcelWithTrackingNumberValidated() {
-    let parcel = upsServiceManager.getParcelWithTrackingNumber("000")
+    let parcel = upsService.getParcelWithTrackingNumber("000")
     
     XCTAssert(parcel.isTrackingNumberValid == true)
   }
@@ -30,5 +30,5 @@ class UPSServiceManagerTests: XCTestCase {
   }
   
   // MARK: Properties
-  let upsServiceManager = UPSServiceManager()
+  let upsService = UPSService()
 }
