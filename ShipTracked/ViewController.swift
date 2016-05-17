@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
-    let _ = upsServiceManager.getParcelWithTrackingNumber(upsServiceManager.validTrackingNumberForTesting)
+    let _ = upsServiceManager.requestParcelInfoWithTrackingNumber(upsServiceManager.validTrackingNumberForTesting)
     
   }
   
@@ -24,6 +24,16 @@ class ViewController: UIViewController {
   }
   
   // MARK: Properties
-  let upsServiceManager = UPSServiceManager()
+  lazy var upsServiceManager: UPSServiceManager = {
+    let manager = UPSServiceManager()
+    manager.delegate = self
+    return manager
+  }()
+}
+
+extension ViewController: UPSServiceManagerDelegate {
+  func didReceiveData(data: AnyObject) {
+    print("Did receive data: \(data)")
+  }
 }
 

@@ -8,16 +8,23 @@
 
 import Foundation
 
+@objc protocol UPSServiceManagerDelegate: class {
+  optional func didCompleteWithError(error: NSError)
+  func didReceiveData(data: AnyObject)
+}
+
 class UPSServiceManager {
   
   // MARK: Functions
-  func getParcelWithTrackingNumber(trackingNumber: String) -> Parcel {
-    let parcel = Parcel(trackingNumber: trackingNumber)
+  func requestParcelInfoWithTrackingNumber(trackingNumber: String) {
     
-    return updateParcelInformationFromAPI(parcel)
+    sendDataTaskWithTrackingNumber(trackingNumber)
+    
   }
   
+  
   // MARK: Properties
+  weak var delegate: UPSServiceManagerDelegate?
   
   // JSON Production Endpoint
   private let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
@@ -38,10 +45,6 @@ class UPSServiceManager {
 
 // MARK: - Private Functions
 private extension UPSServiceManager {
-  func updateParcelInformationFromAPI(parcel: Parcel) -> Parcel {
-    sendDataTaskWithTrackingNumber(parcel.trackingNumber)
-    return parcel.validateTrackingNumber()
-  }
   
   func sendDataTaskWithTrackingNumber(trackingNumber: String) {
     guard let body = createRequestBodyJSONWithTrackingNumber(trackingNumber),
@@ -58,14 +61,14 @@ private extension UPSServiceManager {
       data, response, error in
       
       if let error = error {
-        print(error)
+        self.delegate?.didCompleteWithError?(error)
         return
       }
       
       do {
         let result = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
         
-        print("Result from UPS json: \(result)")
+        self.delegate?.didReceiveData(result)
       } catch {
         print(error)
       }
@@ -113,7 +116,6 @@ private extension UPSServiceManager {
     
     do {
       let bodyJSON = try NSJSONSerialization.dataWithJSONObject(bodyDictionary, options: .PrettyPrinted)
-      print(bodyJSON)
       return bodyJSON
       
     } catch {
