@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
+    parcelManager.addParcelWithTrackingNumber(invalidTrackingNumberForTesting)
     parcelManager.addParcelWithTrackingNumber(validTrackingNumberForTesting)
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
   // MARK: Properties
   let parcelManager = ParcelManager()
   let validTrackingNumberForTesting = "1Z202Y36A898759591"
+  let invalidTrackingNumberForTesting = "0000"
   
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Parcel {
+struct Parcel: Equatable {
   
   // MARK: Functions
   func validateTrackingNumber() -> Parcel {
@@ -30,4 +30,13 @@ struct Parcel {
   var trackingNumber: String
   var isTrackingNumberValid: Bool
   
+  var startingAddress = Address()
+  var endingAddress = Address()
+  
+  var activityAddresses = [Address]()
+  
+}
+
+func ==(lhs: Parcel, rhs: Parcel) -> Bool {
+  return (lhs.trackingNumber == rhs.trackingNumber)
 }
