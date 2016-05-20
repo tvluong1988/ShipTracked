@@ -19,16 +19,15 @@ class ParcelManager {
   }
   
   // MARK: Lifecycle
-  init() {
-    parcels = [Parcel]()
-    trackingNumberRequests = [String]()
-    trackingNumberRequestCount = 0
-  }
   
   // MARK: Properties
-  private var parcels: [Parcel]
-  private var trackingNumberRequests: [String]
-  private var trackingNumberRequestCount: Int
+  var parcelCount: Int {
+    return self.parcels.count
+  }
+  
+  private var parcels = [Parcel]()
+  private var trackingNumberRequests = [String]()
+  private var trackingNumberRequestCount: Int = 0
   
   private lazy var upsService: UPSService = {
     let service = UPSService()
@@ -64,6 +63,11 @@ extension ParcelManager: UPSServiceDelegate {
     trackingNumberRequestCount -= 1
     
     if trackingNumberRequestCount == 0 {
+      for trackingNumberRequest in trackingNumberRequests {
+        let parcel = Parcel(trackingNumber: trackingNumberRequest, isTrackingNumberValid: false)
+        parcels.append(parcel)
+      }
+      
       trackingNumberRequests.removeAll()
     }
   }
@@ -150,7 +154,7 @@ extension ParcelManager: UPSServiceDelegate {
         }
       }
       
-      var parcel = Parcel(trackingNumber: trackingNumber)
+      var parcel = Parcel(trackingNumber: trackingNumber, isTrackingNumberValid: true)
       parcel.startingAddress = startingAddress
       parcel.endingAddress = endingAddress
       

@@ -12,10 +12,46 @@ import XCTest
 class UPSServiceTests: XCTestCase {
   
   // MARK: Tests
-  func testGetParcelWithTrackingNumberValidated() {
-    let parcel = upsService.getParcelWithTrackingNumber("000")
+  func testRequestParcelInfoWithValidTrackingNumber() {
+    let expectation = expectationWithDescription("upsService calls the delegate.")
+    spyDelegate.asyncExpectation = expectation
     
-    XCTAssert(parcel.isTrackingNumberValid == true)
+    upsService.requestParcelInfoWithTrackingNumber(validTrackingNumberForTesting)
+    
+    waitForExpectationsWithTimeout(1) {
+      error in
+      if let error = error {
+        XCTFail("waitForExpectationWithTimeout errored: \(error)")
+      }
+      
+      if self.spyDelegate.asyncResult == nil {
+        XCTFail("Expected delegate to be called")
+        return
+      }
+      
+    }
+    
+  }
+  
+  func testRequestParcelInfoWithInvalidTrackingNumber() {
+    let expectation = expectationWithDescription("upsService calls the delegate.")
+    spyDelegate.asyncExpectation = expectation
+    
+    upsService.requestParcelInfoWithTrackingNumber(invalidTrackingNumberForTesting)
+    
+    waitForExpectationsWithTimeout(1) {
+      error in
+      if let error = error {
+        XCTFail("waitForExpectationWithTimeout errored: \(error)")
+      }
+      
+      if self.spyDelegate.asyncResult == nil {
+        XCTFail("Expected delegate to be called")
+        return
+      }
+      
+    }
+    
   }
   
   // MARK: Lifecycle
@@ -30,5 +66,63 @@ class UPSServiceTests: XCTestCase {
   }
   
   // MARK: Properties
-  let upsService = UPSService()
+  
+  lazy var upsService: UPSService = {
+    let service = UPSService()
+    service.delegate = self.spyDelegate
+    return service
+  }()
+  
+  var spyDelegate = SpyUPSServiceDelegate()
+  
+  private let validTrackingNumberForTesting = "1Z202Y36A898759591"
+  private let invalidTrackingNumberForTesting = "0000"
+  
 }
+
+class SpyUPSServiceDelegate: UPSServiceDelegate {
+  var asyncResult: AnyObject?
+  
+  var asyncExpectation: XCTestExpectation?
+  
+  @objc func didReceiveData(data: AnyObject) {
+    guard let expectation = asyncExpectation else {
+      XCTFail("SpyUPSServiceDelegate was not setup correctly. Missing XCTestExpectation reference.")
+      return
+    }
+    
+    asyncResult = data
+    expectation.fulfill()
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,6 +21,7 @@
 		8B429FB51CEA631500B81C1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FB31CEA631500B81C1B /* LaunchScreen.storyboard */; };
 		8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FBF1CEA631500B81C1B /* ParcelTests.swift */; };
 		8B429FCB1CEA631500B81C1B /* ShipTrackedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */; };
+		8BAE47141CEE4EC400574208 /* ParcelManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		8B429FC61CEA631500B81C1B /* ShipTrackedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipTrackedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipTrackedUITests.swift; sourceTree = "<group>"; };
 		8B429FCC1CEA631500B81C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BAE47131CEE4EC400574208 /* ParcelManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				8B429FBF1CEA631500B81C1B /* ParcelTests.swift */,
 				8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */,
+				8BAE47131CEE4EC400574208 /* ParcelManagerTests.swift */,
 			);
 			path = ShipTrackedTests;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			files = (
 				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */,
 				8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */,
+				8BAE47141CEE4EC400574208 /* ParcelManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
