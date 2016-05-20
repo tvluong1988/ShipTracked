@@ -18,7 +18,9 @@ class ParcelManager {
     upsService.requestParcelInfoWithTrackingNumber(trackingNumber)
   }
   
-  // MARK: Lifecycle
+  func getParcelAtIndex(index: Int) -> Parcel {
+    return parcels[index]
+  }
   
   // MARK: Properties
   var parcelCount: Int {
