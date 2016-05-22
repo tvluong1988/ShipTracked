@@ -9,17 +9,17 @@
 import XCTest
 @testable import ShipTracked
 
-class ParcelManagerTests: XCTestCase {
+class ParcelDataSourceTests: XCTestCase {
   
   // MARK: Functions
   func testAddParcelWithTrackingNumberWithInvalidTrackingNumber() {
-    XCTAssert(mockParcelManager.parcelCount == 0)
+    XCTAssert(mockParcelDataSource.parcelCount == 0)
     
     let expectation = expectationWithDescription("ParcelManager retrieve parcel information from UPSService.")
     
-    mockParcelManager.asyncExpectation = expectation
+    mockParcelDataSource.asyncExpectation = expectation
     
-    mockParcelManager.addParcelWithTrackingNumber(invalidTrackingNumberForTesting)
+    mockParcelDataSource.addParcelWithTrackingNumber(invalidTrackingNumberForTesting)
     
     waitForExpectationsWithTimeout(1) {
       error in
@@ -28,20 +28,20 @@ class ParcelManagerTests: XCTestCase {
         XCTFail("waitForExpectationWithTimeout errored: \(error)")
       }
       
-      let parcel = self.mockParcelManager.getParcelAtIndex(0)
+      let parcel = self.mockParcelDataSource.getParcelAtIndex(0)
       XCTAssert(parcel.trackingNumber == self.invalidTrackingNumberForTesting)
       XCTAssert(parcel.isTrackingNumberValid == false)
     }
   }
   
   func testAddParcelWithTrackingNumberWithValidTrackingNumber() {
-    XCTAssert(mockParcelManager.parcelCount == 0)
+    XCTAssert(mockParcelDataSource.parcelCount == 0)
     
     let expectation = expectationWithDescription("ParcelManager retrieve parcel information from UPSService.")
     
-    mockParcelManager.asyncExpectation = expectation
+    mockParcelDataSource.asyncExpectation = expectation
     
-    mockParcelManager.addParcelWithTrackingNumber(validTrackingNumberForTesting)
+    mockParcelDataSource.addParcelWithTrackingNumber(validTrackingNumberForTesting)
     
     waitForExpectationsWithTimeout(1) {
       error in
@@ -50,7 +50,7 @@ class ParcelManagerTests: XCTestCase {
         XCTFail("waitForExpectationWithTimeout errored: \(error)")
       }
       
-      let parcel = self.mockParcelManager.getParcelAtIndex(0)
+      let parcel = self.mockParcelDataSource.getParcelAtIndex(0)
       XCTAssert(parcel.trackingNumber == self.validTrackingNumberForTesting)
       XCTAssert(parcel.isTrackingNumberValid == true)
     }
@@ -69,12 +69,12 @@ class ParcelManagerTests: XCTestCase {
   }
   
   // MARK: Properties
-  var mockParcelManager = MockParcelManager()
+  var mockParcelDataSource = MockParcelDataSource()
   let validTrackingNumberForTesting = "1Z202Y36A898759591"
   let invalidTrackingNumberForTesting = "0000"
 }
 
-class MockParcelManager: ParcelManager {
+class MockParcelDataSource: ParcelDataSource {
   var asyncExpectation: XCTestExpectation?
   
   override func didReceiveData(data: AnyObject) {

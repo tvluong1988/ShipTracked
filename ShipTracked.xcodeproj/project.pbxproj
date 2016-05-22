@@ -10,9 +10,10 @@
 		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
 		8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */; };
-		8B21ECC31CEAA30000EAA1D8 /* ParcelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC21CEAA30000EAA1D8 /* ParcelManager.swift */; };
+		8B21ECC31CEAA30000EAA1D8 /* ParcelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */; };
 		8B21ECC51CEAB52000EAA1D8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC41CEAB52000EAA1D8 /* SwiftyJSON.swift */; };
 		8B21ECC81CEAC05C00EAA1D8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC71CEAC05C00EAA1D8 /* Address.swift */; };
+		8B3711401CF22778009F1B9A /* ParcelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B37113F1CF22778009F1B9A /* ParcelList.swift */; };
 		8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA71CEA631500B81C1B /* AppDelegate.swift */; };
 		8B429FAA1CEA631500B81C1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA91CEA631500B81C1B /* ViewController.swift */; };
 		8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FAB1CEA631500B81C1B /* Main.storyboard */; };
@@ -21,7 +22,7 @@
 		8B429FB51CEA631500B81C1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FB31CEA631500B81C1B /* LaunchScreen.storyboard */; };
 		8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FBF1CEA631500B81C1B /* ParcelTests.swift */; };
 		8B429FCB1CEA631500B81C1B /* ShipTrackedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */; };
-		8BAE47141CEE4EC400574208 /* ParcelManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelManagerTests.swift */; };
+		8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +46,10 @@
 		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
 		8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceTests.swift; sourceTree = "<group>"; };
-		8B21ECC21CEAA30000EAA1D8 /* ParcelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelManager.swift; sourceTree = "<group>"; };
+		8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSource.swift; sourceTree = "<group>"; };
 		8B21ECC41CEAB52000EAA1D8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		8B21ECC71CEAC05C00EAA1D8 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		8B37113F1CF22778009F1B9A /* ParcelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelList.swift; sourceTree = "<group>"; };
 		8B429FA41CEA631500B81C1B /* ShipTracked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShipTracked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B429FA71CEA631500B81C1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B429FA91CEA631500B81C1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		8B429FC61CEA631500B81C1B /* ShipTrackedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipTrackedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipTrackedUITests.swift; sourceTree = "<group>"; };
 		8B429FCC1CEA631500B81C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BAE47131CEE4EC400574208 /* ParcelManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelManagerTests.swift; sourceTree = "<group>"; };
+		8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSourceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +133,9 @@
 				8B429FA91CEA631500B81C1B /* ViewController.swift */,
 				8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */,
 				8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */,
+				8B37113F1CF22778009F1B9A /* ParcelList.swift */,
 				8BAE47121CEE3CF500574208 /* Library */,
-				8B21ECC21CEAA30000EAA1D8 /* ParcelManager.swift */,
+				8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */,
 				8B21ECC71CEAC05C00EAA1D8 /* Address.swift */,
 			);
 			path = ShipTracked;
@@ -143,7 +146,7 @@
 			children = (
 				8B429FBF1CEA631500B81C1B /* ParcelTests.swift */,
 				8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */,
-				8BAE47131CEE4EC400574208 /* ParcelManagerTests.swift */,
+				8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */,
 			);
 			path = ShipTrackedTests;
 			sourceTree = "<group>";
@@ -298,11 +301,12 @@
 			files = (
 				8B429FAA1CEA631500B81C1B /* ViewController.swift in Sources */,
 				8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */,
-				8B21ECC31CEAA30000EAA1D8 /* ParcelManager.swift in Sources */,
+				8B21ECC31CEAA30000EAA1D8 /* ParcelDataSource.swift in Sources */,
 				8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */,
 				8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */,
 				8B21ECC51CEAB52000EAA1D8 /* SwiftyJSON.swift in Sources */,
 				8B21ECC81CEAC05C00EAA1D8 /* Address.swift in Sources */,
+				8B3711401CF22778009F1B9A /* ParcelList.swift in Sources */,
 				8B429FB01CEA631500B81C1B /* ShipTracked.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,7 +317,7 @@
 			files = (
 				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */,
 				8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */,
-				8BAE47141CEE4EC400574208 /* ParcelManagerTests.swift in Sources */,
+				8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

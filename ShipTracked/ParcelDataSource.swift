@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ParcelManager {
+class ParcelDataSource {
   
   // MARK: Functions
   func addParcelWithTrackingNumber(trackingNumber: String) {
@@ -20,6 +20,12 @@ class ParcelManager {
   
   func getParcelAtIndex(index: Int) -> Parcel {
     return parcels[index]
+  }
+  
+  func removeAllParcels() {
+    trackingNumberRequestCount = 0
+    trackingNumberRequests.removeAll()
+    parcels.removeAll()
   }
   
   // MARK: Properties
@@ -38,7 +44,7 @@ class ParcelManager {
   }()
 }
 
-extension ParcelManager: UPSServiceDelegate {
+extension ParcelDataSource: UPSServiceDelegate {
   @objc func didReceiveData(data: AnyObject) {
     
     if let json = JSON(rawValue: data),

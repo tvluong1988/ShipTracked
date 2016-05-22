@@ -25,7 +25,7 @@ class ViewController: UIViewController {
   }
   
   // MARK: Properties
-  let parcelManager = ParcelManager()
+  let parcelManager = ParcelDataSource()
   let validTrackingNumberForTesting = "1Z202Y36A898759591"
   let invalidTrackingNumberForTesting = "0000"
   
