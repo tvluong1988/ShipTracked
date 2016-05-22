@@ -7,3 +7,81 @@
 //
 
 import Foundation
+
+struct ParcelList {
+  
+  // MARK: Lifecycle
+  init() {
+    self.parcels = [Parcel]()
+  }
+  init(parcels: [Parcel]) {
+    self.parcels = parcels
+  }
+  
+  // MARK: Properties
+  let parcels: [Parcel]
+}
+
+private extension ParcelList {
+  func insertParcel(parcel: Parcel, atIndex index: Int) -> ParcelList {
+    var mutableParcels = parcels
+    mutableParcels.insert(parcel, atIndex: index)
+    
+    return ParcelList(parcels: mutableParcels)
+  }
+}
+
+extension ParcelList: DataList {
+  
+  var numberOfItems: Int {
+    return parcels.count
+  }
+  
+  subscript(index: Int) -> Parcel {
+    return parcels[index]
+  }
+  
+  func addNewItem(item: Item, atIndex index: Int) -> ParcelList {
+    let item = item as! Parcel
+    return insertParcel(item, atIndex: index)
+  }
+  
+  func deleteItemAtIndex(index: Int) -> ParcelList {
+    var mutableParcels = parcels
+    mutableParcels.removeAtIndex(index)
+    
+    return ParcelList(parcels: mutableParcels)
+  }
+  
+  func moveItemFromIndex(fromIndex: Int, toIndex: Int) -> ParcelList {
+    return deleteItemAtIndex(fromIndex).insertParcel(parcels[fromIndex], atIndex: toIndex)
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

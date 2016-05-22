@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Parcel: Equatable {
+struct Parcel: Equatable, Item {
   
   // MARK: Functions
   func validateTrackingNumber() -> Parcel {
