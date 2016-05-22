@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Parcel Table View Controller-->
@@ -37,6 +38,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Kf8-Qi-yIg" kind="show" identifier="ShowParcelDetailVC" id="4Y8-xk-iBe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -55,6 +59,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxZ-Jc-PWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1018" y="234"/>
+        </scene>
+        <!--Parcel Detail View Controller-->
+        <scene sceneID="pbT-Ez-0VE">
+            <objects>
+                <viewController id="Kf8-Qi-yIg" customClass="ParcelDetailViewController" customModule="ShipTracked" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J6o-ZK-jHv"/>
+                        <viewControllerLayoutGuide type="bottom" id="RBo-Qp-SV2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UpO-yK-Gap">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Uc-Sc-kbc">
+                                <rect key="frame" x="20" y="72" width="137" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="9999999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Iu-Lk-Nvf">
+                                <rect key="frame" x="165" y="72" width="415" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Iu-Lk-Nvf" firstAttribute="leading" secondItem="4Uc-Sc-kbc" secondAttribute="trailing" constant="8" symbolic="YES" id="JBI-zh-Y78"/>
+                            <constraint firstItem="4Uc-Sc-kbc" firstAttribute="top" secondItem="J6o-ZK-jHv" secondAttribute="bottom" constant="8" symbolic="YES" id="Rfc-56-JaN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Iu-Lk-Nvf" secondAttribute="trailing" id="bta-QN-bJY"/>
+                            <constraint firstItem="2Iu-Lk-Nvf" firstAttribute="baseline" secondItem="4Uc-Sc-kbc" secondAttribute="baseline" id="fEK-yz-dhy"/>
+                            <constraint firstItem="2Iu-Lk-Nvf" firstAttribute="top" secondItem="J6o-ZK-jHv" secondAttribute="bottom" constant="8" symbolic="YES" id="lvF-Dp-Gf4"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="4Uc-Sc-kbc" secondAttribute="leading" id="ouQ-C4-dFF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lvF-Dp-Gf4"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="trackingNumberLabel" destination="2Iu-Lk-Nvf" id="0Eg-1n-FeC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fwf-Pr-0h1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682" y="234"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="joN-3W-JMf">

@@ -20,7 +20,7 @@
 		8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711471CF2383A009F1B9A /* ParcelCell.swift */; };
 		8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */; };
 		8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA71CEA631500B81C1B /* AppDelegate.swift */; };
-		8B429FAA1CEA631500B81C1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA91CEA631500B81C1B /* ViewController.swift */; };
+		8B429FAA1CEA631500B81C1B /* ParcelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA91CEA631500B81C1B /* ParcelDetailViewController.swift */; };
 		8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FAB1CEA631500B81C1B /* Main.storyboard */; };
 		8B429FB01CEA631500B81C1B /* ShipTracked.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FAE1CEA631500B81C1B /* ShipTracked.xcdatamodeld */; };
 		8B429FB21CEA631500B81C1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FB11CEA631500B81C1B /* Assets.xcassets */; };
@@ -62,7 +62,7 @@
 		8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelTableViewController.swift; sourceTree = "<group>"; };
 		8B429FA41CEA631500B81C1B /* ShipTracked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShipTracked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B429FA71CEA631500B81C1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B429FA91CEA631500B81C1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B429FA91CEA631500B81C1B /* ParcelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailViewController.swift; sourceTree = "<group>"; };
 		8B429FAC1CEA631500B81C1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B429FAF1CEA631500B81C1B /* ShipTracked.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShipTracked.xcdatamodel; sourceTree = "<group>"; };
 		8B429FB11CEA631500B81C1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		8B37114C1CF23B47009F1B9A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8B429FA91CEA631500B81C1B /* ViewController.swift */,
+				8B429FA91CEA631500B81C1B /* ParcelDetailViewController.swift */,
 				8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */,
 			);
 			name = ViewController;
@@ -346,7 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B429FAA1CEA631500B81C1B /* ViewController.swift in Sources */,
+				8B429FAA1CEA631500B81C1B /* ParcelDetailViewController.swift in Sources */,
 				8B3711461CF228B4009F1B9A /* DataList.swift in Sources */,
 				8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */,
 				8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */,

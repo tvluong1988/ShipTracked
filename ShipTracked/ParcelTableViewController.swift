@@ -9,6 +9,14 @@
 import UIKit
 
 class ParcelTableViewController: UITableViewController {
+  // MARK: Segues
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "ShowParcelDetailVC",
+      let parcelDetailVC = segue.destinationViewController as? ParcelDetailViewController,
+      let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
+      parcelDetailVC.parcel = dataSource.dataObject[indexPath.row] as? Parcel
+    }
+  }
   
   // MARK: Actions
   @IBAction func addButtonPressed(sender: UIBarButtonItem) {
@@ -16,6 +24,12 @@ class ParcelTableViewController: UITableViewController {
   }
   
   // MARK: Functions
+  private func requestParcelWithTrackingNumber(trackingNumber: String) {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+      [unowned self] in
+      self.dataSource.addParcelWithTrackingNumber(trackingNumber)
+    }
+  }
   private func showTrackingNumberInputAlert() {
     let alertController = UIAlertController(title: "New Parcel", message: "Please enter your tracking number", preferredStyle: .Alert)
     
@@ -27,11 +41,7 @@ class ParcelTableViewController: UITableViewController {
     let okAction = UIAlertAction(title: "OK", style: .Default) {
       action in
       if let trackingNumber = alertController.textFields?.first?.text {
-        
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-          [unowned self] in
-          self.dataSource.addParcelWithTrackingNumber(trackingNumber)
-        }
+        self.requestParcelWithTrackingNumber(trackingNumber)
       }
     }
     
@@ -50,10 +60,7 @@ class ParcelTableViewController: UITableViewController {
     
     title = "Parcel List"
     
-    dataSource.addParcelWithTrackingNumber(validTrackingNumberForTesting)
-    dataSource.addParcelWithTrackingNumber(invalidTrackingNumberForTesting)
-    
-    tableView.reloadData()
+    requestParcelWithTrackingNumber(validTrackingNumberForTesting)
   }
   
   // MARK: Properties
