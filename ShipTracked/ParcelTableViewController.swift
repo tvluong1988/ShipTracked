@@ -14,14 +14,22 @@ class ParcelTableViewController: UITableViewController {
     super.viewDidLoad()
     
     tableView.dataSource = dataSource
+    dataSource.tableView = tableView
     
     navigationItem.leftBarButtonItem = editButtonItem()
     
     title = "Parcel List"
+    
+    dataSource.addParcelWithTrackingNumber(validTrackingNumberForTesting)
+    dataSource.addParcelWithTrackingNumber(invalidTrackingNumberForTesting)
+    
+    tableView.reloadData()
   }
   
   // MARK: Properties
-  let dataSource = ParcelDataSource()
+  private var dataSource = ParcelDataSource()
+  let validTrackingNumberForTesting = "1Z202Y36A898759591"
+  let invalidTrackingNumberForTesting = "0000"
 }
 
 

@@ -34,6 +34,8 @@ class ParcelDataSource: DataSource {
   }
   
   // MARK: Properties
+  weak var tableView: UITableView?
+  
   var parcelCount: Int {
     return self.parcels.count
   }
@@ -57,9 +59,10 @@ extension ParcelDataSource: UPSServiceDelegate {
       print("Did receive data: \(json)")
       var matchTrackingNumber = false
       
-      for trackingNumberRequest in trackingNumberRequests {
+      for (index, trackingNumberRequest) in trackingNumberRequests.enumerate() {
         if trackingNumber == trackingNumberRequest {
           matchTrackingNumber = true
+          trackingNumberRequests.removeAtIndex(index)
         }
       }
       
@@ -67,10 +70,15 @@ extension ParcelDataSource: UPSServiceDelegate {
         if let parcel = extractParcelFromJSON(json) {
           parcels.append(parcel)
           print(parcel)
+          
+          dataObject = dataObject.addNewItem(parcel)
+          if let tableView = tableView {
+            insertTopRowIn(tableView)
+          }
         }
       }
     } else {
-      print("Raw data: \(data)")
+      print("Failed to convert raw data to JSON: \(data)")
     }
     
     trackingNumberRequestCount -= 1
@@ -79,10 +87,17 @@ extension ParcelDataSource: UPSServiceDelegate {
       for trackingNumberRequest in trackingNumberRequests {
         let parcel = Parcel(trackingNumber: trackingNumberRequest, isTrackingNumberValid: false)
         parcels.append(parcel)
+        dataObject = dataObject.addNewItem(parcel)
+        
+        if let tableView = tableView {
+          insertTopRowIn(tableView)
+        }
       }
       
       trackingNumberRequests.removeAll()
     }
+    
+    print("Count: \(dataObject.numberOfItems)")
   }
   
   private func extractActivityAddressesFromJSON(json: JSON) -> [Address]? {
@@ -189,7 +204,7 @@ extension ParcelDataSource {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-    guard let cell = tableView.dequeueReusableCellWithIdentifier("ParcelCell", forIndexPath: indexPath) as? ParcelCell, parcels = dataObject as? ParcelList else {
+    guard let cell = tableView.dequeueReusableCellWithIdentifier("ParcelCell", forIndexPath: indexPath) as? ParcelCell, let parcels = dataObject as? ParcelList else {
       return UITableViewCell()
     }
     

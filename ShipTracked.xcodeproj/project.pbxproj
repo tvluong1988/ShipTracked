@@ -116,6 +116,45 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		8B37114B1CF23B34009F1B9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */,
+				8B21ECC71CEAC05C00EAA1D8 /* Address.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8B37114C1CF23B47009F1B9A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8B429FA91CEA631500B81C1B /* ViewController.swift */,
+				8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		8B37114D1CF23B50009F1B9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B3711471CF2383A009F1B9A /* ParcelCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8B37114E1CF23B5B009F1B9A /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */,
+				8B3711431CF228AD009F1B9A /* DataSource.swift */,
+				8B3711451CF228B4009F1B9A /* DataList.swift */,
+				8B3711411CF228A7009F1B9A /* SourceType.swift */,
+				8B37113F1CF22778009F1B9A /* ParcelList.swift */,
+				8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
 		8B429F9B1CEA631500B81C1B = {
 			isa = PBXGroup;
 			children = (
@@ -140,18 +179,11 @@
 			isa = PBXGroup;
 			children = (
 				8B21ECC61CEAB56B00EAA1D8 /* Support */,
-				8B429FA91CEA631500B81C1B /* ViewController.swift */,
-				8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */,
-				8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */,
-				8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */,
-				8B3711471CF2383A009F1B9A /* ParcelCell.swift */,
-				8B3711431CF228AD009F1B9A /* DataSource.swift */,
-				8B3711451CF228B4009F1B9A /* DataList.swift */,
-				8B3711411CF228A7009F1B9A /* SourceType.swift */,
-				8B37113F1CF22778009F1B9A /* ParcelList.swift */,
+				8B37114C1CF23B47009F1B9A /* ViewController */,
+				8B37114B1CF23B34009F1B9A /* Model */,
+				8B37114D1CF23B50009F1B9A /* View */,
+				8B37114E1CF23B5B009F1B9A /* DataSource */,
 				8BAE47121CEE3CF500574208 /* Library */,
-				8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */,
-				8B21ECC71CEAC05C00EAA1D8 /* Address.swift */,
 			);
 			path = ShipTracked;
 			sourceTree = "<group>";
