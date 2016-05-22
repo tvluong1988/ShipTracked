@@ -15,7 +15,6 @@ protocol SourceType: UITableViewDataSource {
   
   // MARK: Functions
   func insertTopRowIn(tableView: UITableView)
-  
   func deleteRowAtIndexPath(indexPath: NSIndexPath, fromTableView tableView: UITableView)
 }
 
@@ -33,9 +32,9 @@ extension SourceType {
     tableView.reloadData()
   }
   
-  func addItemTo(tableView: UITableView) {
+  func addItem(item: Item, toTableView tableView: UITableView) {
     if conditionForAdding {
-      //            dataObject = dataObject.addNewItemAtIndex(0)
+      dataObject = dataObject.addNewItem(item)
       insertTopRowIn(tableView)
     }
   }

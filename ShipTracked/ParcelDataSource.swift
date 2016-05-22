@@ -34,6 +34,10 @@ class ParcelDataSource: DataSource {
     service.delegate = self
     return service
   }()
+  
+  override var conditionForAdding: Bool {
+    return true
+  }
 }
 
 extension ParcelDataSource: UPSServiceDelegate {
@@ -55,9 +59,8 @@ extension ParcelDataSource: UPSServiceDelegate {
         if let parcel = extractParcelFromJSON(json) {
           print(parcel)
           
-          dataObject = dataObject.addNewItem(parcel)
           if let tableView = tableView {
-            insertTopRowIn(tableView)
+            addItem(parcel, toTableView: tableView)
           }
         }
       }
@@ -70,10 +73,9 @@ extension ParcelDataSource: UPSServiceDelegate {
     if trackingNumberRequestCount == 0 {
       for trackingNumberRequest in trackingNumberRequests {
         let parcel = Parcel(trackingNumber: trackingNumberRequest, isTrackingNumberValid: false)
-        dataObject = dataObject.addNewItem(parcel)
         
         if let tableView = tableView {
-          insertTopRowIn(tableView)
+          addItem(parcel, toTableView: tableView)
         }
       }
       
@@ -181,17 +183,16 @@ extension ParcelDataSource: UPSServiceDelegate {
 }
 
 extension ParcelDataSource {
-  override var conditionForAdding: Bool {
-    return true
-  }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-    guard let cell = tableView.dequeueReusableCellWithIdentifier("ParcelCell", forIndexPath: indexPath) as? ParcelCell, let parcels = dataObject as? ParcelList else {
-      return UITableViewCell()
+    guard let cell = tableView.dequeueReusableCellWithIdentifier("ParcelCell", forIndexPath: indexPath) as? ParcelCell,
+      let parcels = dataObject as? ParcelList,
+      let parcel = parcels[indexPath.row] as? Parcel else {
+        return UITableViewCell()
     }
     
-    cell.fillWith(parcels[indexPath.row] as! Parcel)
+    cell.fillWith(parcel)
     
     return cell
   }
