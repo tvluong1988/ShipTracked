@@ -18,16 +18,6 @@ class ParcelDataSource: DataSource {
     upsService.requestParcelInfoWithTrackingNumber(trackingNumber)
   }
   
-  func getParcelAtIndex(index: Int) -> Parcel {
-    return parcels[index]
-  }
-  
-  func removeAllParcels() {
-    trackingNumberRequestCount = 0
-    trackingNumberRequests.removeAll()
-    parcels.removeAll()
-  }
-  
   // MARK: Lifecycle
   init() {
     super.init(dataObject: ParcelList())
@@ -36,11 +26,6 @@ class ParcelDataSource: DataSource {
   // MARK: Properties
   weak var tableView: UITableView?
   
-  var parcelCount: Int {
-    return self.parcels.count
-  }
-  
-  private var parcels = [Parcel]()
   private var trackingNumberRequests = [String]()
   private var trackingNumberRequestCount: Int = 0
   
@@ -68,7 +53,6 @@ extension ParcelDataSource: UPSServiceDelegate {
       
       if matchTrackingNumber {
         if let parcel = extractParcelFromJSON(json) {
-          parcels.append(parcel)
           print(parcel)
           
           dataObject = dataObject.addNewItem(parcel)
@@ -86,7 +70,6 @@ extension ParcelDataSource: UPSServiceDelegate {
     if trackingNumberRequestCount == 0 {
       for trackingNumberRequest in trackingNumberRequests {
         let parcel = Parcel(trackingNumber: trackingNumberRequest, isTrackingNumberValid: false)
-        parcels.append(parcel)
         dataObject = dataObject.addNewItem(parcel)
         
         if let tableView = tableView {
@@ -208,7 +191,7 @@ extension ParcelDataSource {
       return UITableViewCell()
     }
     
-    cell.fillWith(parcels[indexPath.row])
+    cell.fillWith(parcels[indexPath.row] as! Parcel)
     
     return cell
   }

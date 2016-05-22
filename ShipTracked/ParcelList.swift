@@ -37,7 +37,7 @@ extension ParcelList: DataList {
     return parcels.count
   }
   
-  subscript(index: Int) -> Parcel {
+  subscript(index: Int) -> Item {
     return parcels[index]
   }
   

@@ -16,6 +16,7 @@ protocol DataList {
   func addNewItem(item: Item, atIndex index: Int) -> Self
   func deleteItemAtIndex(index: Int) -> Self
   func moveItemFromIndex(fromIndex: Int, toIndex: Int) -> Self
+  subscript(index: Int) -> Item { get }
 }
 
 extension DataList {
