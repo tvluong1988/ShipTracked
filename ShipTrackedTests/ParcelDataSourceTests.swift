@@ -69,7 +69,11 @@ class ParcelDataSourceTests: XCTestCase {
   }
   
   // MARK: Properties
-  var mockParcelDataSource = MockParcelDataSource()
+  lazy var mockParcelDataSource: MockParcelDataSource = {
+    var dataSource = MockParcelDataSource()
+    dataSource.tableView = UITableView()
+    return dataSource
+  }()
   let validTrackingNumberForTesting = "1Z202Y36A898759591"
   let invalidTrackingNumberForTesting = "0000"
 }
