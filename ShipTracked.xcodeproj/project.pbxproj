@@ -17,6 +17,8 @@
 		8B3711421CF228A7009F1B9A /* SourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711411CF228A7009F1B9A /* SourceType.swift */; };
 		8B3711441CF228AD009F1B9A /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711431CF228AD009F1B9A /* DataSource.swift */; };
 		8B3711461CF228B4009F1B9A /* DataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711451CF228B4009F1B9A /* DataList.swift */; };
+		8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711471CF2383A009F1B9A /* ParcelCell.swift */; };
+		8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */; };
 		8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA71CEA631500B81C1B /* AppDelegate.swift */; };
 		8B429FAA1CEA631500B81C1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA91CEA631500B81C1B /* ViewController.swift */; };
 		8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FAB1CEA631500B81C1B /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		8B3711411CF228A7009F1B9A /* SourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceType.swift; sourceTree = "<group>"; };
 		8B3711431CF228AD009F1B9A /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		8B3711451CF228B4009F1B9A /* DataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataList.swift; sourceTree = "<group>"; };
+		8B3711471CF2383A009F1B9A /* ParcelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelCell.swift; sourceTree = "<group>"; };
+		8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelTableViewController.swift; sourceTree = "<group>"; };
 		8B429FA41CEA631500B81C1B /* ShipTracked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShipTracked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B429FA71CEA631500B81C1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B429FA91CEA631500B81C1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				8B429FA91CEA631500B81C1B /* ViewController.swift */,
 				8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */,
 				8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */,
+				8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */,
+				8B3711471CF2383A009F1B9A /* ParcelCell.swift */,
 				8B3711431CF228AD009F1B9A /* DataSource.swift */,
 				8B3711451CF228B4009F1B9A /* DataList.swift */,
 				8B3711411CF228A7009F1B9A /* SourceType.swift */,
@@ -310,6 +316,8 @@
 			files = (
 				8B429FAA1CEA631500B81C1B /* ViewController.swift in Sources */,
 				8B3711461CF228B4009F1B9A /* DataList.swift in Sources */,
+				8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */,
+				8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */,
 				8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */,
 				8B21ECC31CEAA30000EAA1D8 /* ParcelDataSource.swift in Sources */,
 				8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */,

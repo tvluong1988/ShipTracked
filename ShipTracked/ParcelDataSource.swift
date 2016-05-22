@@ -6,9 +6,9 @@
 //  Copyright © 2016 Thinh Luong. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class ParcelDataSource {
+class ParcelDataSource: DataSource {
   
   // MARK: Functions
   func addParcelWithTrackingNumber(trackingNumber: String) {
@@ -26,6 +26,11 @@ class ParcelDataSource {
     trackingNumberRequestCount = 0
     trackingNumberRequests.removeAll()
     parcels.removeAll()
+  }
+  
+  // MARK: Lifecycle
+  init() {
+    super.init(dataObject: ParcelList())
   }
   
   // MARK: Properties
@@ -177,6 +182,22 @@ extension ParcelDataSource: UPSServiceDelegate {
   }
 }
 
+extension ParcelDataSource {
+  override var conditionForAdding: Bool {
+    return true
+  }
+  
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
+    guard let cell = tableView.dequeueReusableCellWithIdentifier("ParcelCell", forIndexPath: indexPath) as? ParcelCell, parcels = dataObject as? ParcelList else {
+      return UITableViewCell()
+    }
+    
+    cell.fillWith(parcels[indexPath.row])
+    
+    return cell
+  }
+}
 
 
 
