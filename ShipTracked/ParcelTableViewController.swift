@@ -26,9 +26,12 @@ class ParcelTableViewController: UITableViewController {
     
     let okAction = UIAlertAction(title: "OK", style: .Default) {
       action in
-      //      print("You entered \(alertController.textFields?.first?.text)")
       if let trackingNumber = alertController.textFields?.first?.text {
-        self.dataSource.addParcelWithTrackingNumber(trackingNumber)
+        
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+          [unowned self] in
+          self.dataSource.addParcelWithTrackingNumber(trackingNumber)
+        }
       }
     }
     

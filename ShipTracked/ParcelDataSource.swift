@@ -60,7 +60,10 @@ extension ParcelDataSource: UPSServiceDelegate {
           print(parcel)
           
           if let tableView = tableView {
-            addItem(parcel, toTableView: tableView)
+            dispatch_async(dispatch_get_main_queue()) {
+              [unowned self] in
+              self.addItem(parcel, toTableView: tableView)
+            }
           }
         }
       }
@@ -75,14 +78,14 @@ extension ParcelDataSource: UPSServiceDelegate {
         let parcel = Parcel(trackingNumber: trackingNumberRequest, isTrackingNumberValid: false)
         
         if let tableView = tableView {
-          addItem(parcel, toTableView: tableView)
-        }
+          dispatch_async(dispatch_get_main_queue()) {
+            [unowned self] in
+            self.addItem(parcel, toTableView: tableView)
+          }        }
       }
       
       trackingNumberRequests.removeAll()
-    }
-    
-    print("Count: \(dataObject.numberOfItems)")
+    }    
   }
   
   private func extractActivityAddressesFromJSON(json: JSON) -> [Address]? {
