@@ -9,14 +9,15 @@
 import Foundation
 
 protocol DataList {
-  // MARK: Properties
-  var numberOfItems: Int {get}
   
   // MARK: Functions
   func addNewItem(item: Item, atIndex index: Int) -> Self
   func deleteItemAtIndex(index: Int) -> Self
   func moveItemFromIndex(fromIndex: Int, toIndex: Int) -> Self
   subscript(index: Int) -> Item { get }
+  
+  // MARK: Properties
+  var numberOfItems: Int {get}
 }
 
 extension DataList {

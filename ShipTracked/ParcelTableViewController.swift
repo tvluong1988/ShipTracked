@@ -10,6 +10,33 @@ import UIKit
 
 class ParcelTableViewController: UITableViewController {
   
+  // MARK: Actions
+  @IBAction func addButtonPressed(sender: UIBarButtonItem) {
+    showTrackingNumberInputAlert()
+  }
+  
+  // MARK: Functions
+  private func showTrackingNumberInputAlert() {
+    let alertController = UIAlertController(title: "New Parcel", message: "Please enter your tracking number", preferredStyle: .Alert)
+    
+    alertController.addTextFieldWithConfigurationHandler {
+      trackingNumberInput in
+      trackingNumberInput.placeholder = "tracking number here"
+    }
+    
+    let okAction = UIAlertAction(title: "OK", style: .Default) {
+      action in
+      //      print("You entered \(alertController.textFields?.first?.text)")
+      if let trackingNumber = alertController.textFields?.first?.text {
+        self.dataSource.addParcelWithTrackingNumber(trackingNumber)
+      }
+    }
+    
+    alertController.addAction(okAction)
+    presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
