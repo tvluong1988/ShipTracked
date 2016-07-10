@@ -28,6 +28,13 @@
 		8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FBF1CEA631500B81C1B /* ParcelTests.swift */; };
 		8B429FCB1CEA631500B81C1B /* ShipTrackedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */; };
 		8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */; };
+		8BDACC251CF4FDD2005D6E9F /* AddressLocationData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */; };
+		8BDACC271CF4FF23005D6E9F /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDACC261CF4FF23005D6E9F /* Plist.swift */; };
+		8BF307451D330FC6004B710E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8BF307441D330FC6004B710E /* LICENSE */; };
+		8BF307471D330FE6004B710E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8BF307461D330FE6004B710E /* README.md */; };
+		8BF307491D3310B5004B710E /* script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8BF307481D3310B5004B710E /* script.sh */; };
+		8BF3074B1D3310E6004B710E /* after_success_script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3074A1D3310E6004B710E /* after_success_script.sh */; };
+		8BF3074D1D331108004B710E /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3074C1D331108004B710E /* .travis.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +82,13 @@
 		8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipTrackedUITests.swift; sourceTree = "<group>"; };
 		8B429FCC1CEA631500B81C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSourceTests.swift; sourceTree = "<group>"; };
+		8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AddressLocationData.plist; sourceTree = "<group>"; };
+		8BDACC261CF4FF23005D6E9F /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
+		8BF307441D330FC6004B710E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8BF307461D330FE6004B710E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8BF307481D3310B5004B710E /* script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = script.sh; path = travis/script.sh; sourceTree = "<group>"; };
+		8BF3074A1D3310E6004B710E /* after_success_script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = after_success_script.sh; path = travis/after_success_script.sh; sourceTree = "<group>"; };
+		8BF3074C1D331108004B710E /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,13 +119,13 @@
 		8B21ECC61CEAB56B00EAA1D8 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				8B429FC11CEA631500B81C1B /* Info.plist */,
 				8B429FA71CEA631500B81C1B /* AppDelegate.swift */,
 				8B429FAB1CEA631500B81C1B /* Main.storyboard */,
 				8B429FB11CEA631500B81C1B /* Assets.xcassets */,
 				8B429FB31CEA631500B81C1B /* LaunchScreen.storyboard */,
 				8B429FB61CEA631500B81C1B /* Info.plist */,
 				8B429FAE1CEA631500B81C1B /* ShipTracked.xcdatamodeld */,
+				8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -158,6 +172,10 @@
 		8B429F9B1CEA631500B81C1B = {
 			isa = PBXGroup;
 			children = (
+				8BF3074E1D331111004B710E /* travis */,
+				8BF3074C1D331108004B710E /* .travis.yml */,
+				8BF307461D330FE6004B710E /* README.md */,
+				8BF307441D330FC6004B710E /* LICENSE */,
 				8B429FA61CEA631500B81C1B /* ShipTracked */,
 				8B429FBE1CEA631500B81C1B /* ShipTrackedTests */,
 				8B429FC91CEA631500B81C1B /* ShipTrackedUITests */,
@@ -184,6 +202,7 @@
 				8B37114D1CF23B50009F1B9A /* View */,
 				8B37114E1CF23B5B009F1B9A /* DataSource */,
 				8BAE47121CEE3CF500574208 /* Library */,
+				8BDACC261CF4FF23005D6E9F /* Plist.swift */,
 			);
 			path = ShipTracked;
 			sourceTree = "<group>";
@@ -194,6 +213,7 @@
 				8B429FBF1CEA631500B81C1B /* ParcelTests.swift */,
 				8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */,
 				8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */,
+				8B429FC11CEA631500B81C1B /* Info.plist */,
 			);
 			path = ShipTrackedTests;
 			sourceTree = "<group>";
@@ -213,6 +233,15 @@
 				8B21ECC41CEAB52000EAA1D8 /* SwiftyJSON.swift */,
 			);
 			name = Library;
+			sourceTree = "<group>";
+		};
+		8BF3074E1D331111004B710E /* travis */ = {
+			isa = PBXGroup;
+			children = (
+				8BF307481D3310B5004B710E /* script.sh */,
+				8BF3074A1D3310E6004B710E /* after_success_script.sh */,
+			);
+			name = travis;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,9 +348,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDACC251CF4FDD2005D6E9F /* AddressLocationData.plist in Resources */,
+				8BF307491D3310B5004B710E /* script.sh in Resources */,
+				8BF3074D1D331108004B710E /* .travis.yml in Resources */,
 				8B429FB51CEA631500B81C1B /* LaunchScreen.storyboard in Resources */,
 				8B429FB21CEA631500B81C1B /* Assets.xcassets in Resources */,
 				8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */,
+				8BF307451D330FC6004B710E /* LICENSE in Resources */,
+				8BF3074B1D3310E6004B710E /* after_success_script.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,11 +380,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDACC271CF4FF23005D6E9F /* Plist.swift in Sources */,
 				8B429FAA1CEA631500B81C1B /* ParcelDetailViewController.swift in Sources */,
 				8B3711461CF228B4009F1B9A /* DataList.swift in Sources */,
 				8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */,
 				8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */,
 				8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */,
+				8BF307471D330FE6004B710E /* README.md in Sources */,
 				8B21ECC31CEAA30000EAA1D8 /* ParcelDataSource.swift in Sources */,
 				8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */,
 				8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */,
