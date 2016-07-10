@@ -53,6 +53,7 @@
 		8BF307741D3313DE004B710E /* secondary_first_sub_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8BF307611D3313DD004B710E /* secondary_first_sub_category.txt */; };
 		8BF307751D3313DE004B710E /* secondary_second_sub_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8BF307621D3313DD004B710E /* secondary_second_sub_category.txt */; };
 		8BF307761D3313DE004B710E /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8BF307641D3313DE004B710E /* README.txt */; };
+		8BF307781D331596004B710E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8BF307771D331596004B710E /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		8BF307611D3313DD004B710E /* secondary_first_sub_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = secondary_first_sub_category.txt; sourceTree = "<group>"; };
 		8BF307621D3313DD004B710E /* secondary_second_sub_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = secondary_second_sub_category.txt; sourceTree = "<group>"; };
 		8BF307641D3313DE004B710E /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		8BF307771D331596004B710E /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				8BF307521D3313DD004B710E /* Fastfile */,
 				8BF307531D3313DD004B710E /* metadata */,
 				8BF307631D3313DD004B710E /* screenshots */,
+				8BF307771D331596004B710E /* .gitignore */,
 			);
 			path = fastlane;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				8BDACC251CF4FDD2005D6E9F /* AddressLocationData.plist in Resources */,
 				8BF307491D3310B5004B710E /* script.sh in Resources */,
 				8BF307681D3313DE004B710E /* copyright.txt in Resources */,
+				8BF307781D331596004B710E /* .gitignore in Resources */,
 				8BF3076F1D3313DE004B710E /* support_url.txt in Resources */,
 				8BF307721D3313DE004B710E /* primary_second_sub_category.txt in Resources */,
 				8BF3074D1D331108004B710E /* .travis.yml in Resources */,
