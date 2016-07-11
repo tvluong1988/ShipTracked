@@ -18,7 +18,7 @@ class UPSServiceTests: XCTestCase {
     
     upsService.requestParcelInfoWithTrackingNumber(validTrackingNumberForTesting)
     
-    waitForExpectationsWithTimeout(1) {
+    waitForExpectationsWithTimeout(5) {
       error in
       if let error = error {
         XCTFail("waitForExpectationWithTimeout errored: \(error)")
@@ -39,7 +39,7 @@ class UPSServiceTests: XCTestCase {
     
     upsService.requestParcelInfoWithTrackingNumber(invalidTrackingNumberForTesting)
     
-    waitForExpectationsWithTimeout(1) {
+    waitForExpectationsWithTimeout(5) {
       error in
       if let error = error {
         XCTFail("waitForExpectationWithTimeout errored: \(error)")
