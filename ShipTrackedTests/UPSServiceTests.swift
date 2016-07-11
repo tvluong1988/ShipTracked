@@ -12,47 +12,47 @@ import XCTest
 class UPSServiceTests: XCTestCase {
   
   // MARK: Tests
-  func testRequestParcelInfoWithValidTrackingNumber() {
-    let expectation = expectationWithDescription("upsService calls the delegate.")
-    spyDelegate.asyncExpectation = expectation
-    
-    upsService.requestParcelInfoWithTrackingNumber(validTrackingNumberForTesting)
-    
-    waitForExpectationsWithTimeout(5) {
-      error in
-      if let error = error {
-        XCTFail("waitForExpectationWithTimeout errored: \(error)")
-      }
-      
-      if self.spyDelegate.asyncResult == nil {
-        XCTFail("Expected delegate to be called")
-        return
-      }
-      
-    }
-    
-  }
-  
-  func testRequestParcelInfoWithInvalidTrackingNumber() {
-    let expectation = expectationWithDescription("upsService calls the delegate.")
-    spyDelegate.asyncExpectation = expectation
-    
-    upsService.requestParcelInfoWithTrackingNumber(invalidTrackingNumberForTesting)
-    
-    waitForExpectationsWithTimeout(5) {
-      error in
-      if let error = error {
-        XCTFail("waitForExpectationWithTimeout errored: \(error)")
-      }
-      
-      if self.spyDelegate.asyncResult == nil {
-        XCTFail("Expected delegate to be called")
-        return
-      }
-      
-    }
-    
-  }
+  //  func testRequestParcelInfoWithValidTrackingNumber() {
+  //    let expectation = expectationWithDescription("upsService calls the delegate.")
+  //    spyDelegate.asyncExpectation = expectation
+  //    
+  //    upsService.requestParcelInfoWithTrackingNumber(validTrackingNumberForTesting)
+  //    
+  //    waitForExpectationsWithTimeout(5) {
+  //      error in
+  //      if let error = error {
+  //        XCTFail("waitForExpectationWithTimeout errored: \(error)")
+  //      }
+  //      
+  //      if self.spyDelegate.asyncResult == nil {
+  //        XCTFail("Expected delegate to be called")
+  //        return
+  //      }
+  //      
+  //    }
+  //    
+  //  }
+  //  
+  //  func testRequestParcelInfoWithInvalidTrackingNumber() {
+  //    let expectation = expectationWithDescription("upsService calls the delegate.")
+  //    spyDelegate.asyncExpectation = expectation
+  //    
+  //    upsService.requestParcelInfoWithTrackingNumber(invalidTrackingNumberForTesting)
+  //    
+  //    waitForExpectationsWithTimeout(5) {
+  //      error in
+  //      if let error = error {
+  //        XCTFail("waitForExpectationWithTimeout errored: \(error)")
+  //      }
+  //      
+  //      if self.spyDelegate.asyncResult == nil {
+  //        XCTFail("Expected delegate to be called")
+  //        return
+  //      }
+  //      
+  //    }
+  //    
+  //  }
   
   // MARK: Lifecycle
   override func setUp() {
