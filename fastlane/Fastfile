@@ -71,7 +71,7 @@ value: "#{number_of_commits}"
 #build
 gym(
 scheme: "ShipTracked",
-configuration: "App Store",
+configuration: "Release",
 sdk: "iphoneos9.3",
 clean: true,
 include_bitcode: false,
