@@ -1,13 +1,14 @@
+require 'securerandom'
+
 fastlane_version "1.97.2"
 
 default_platform :ios
 
 platform :ios do
 before_all do
-
 end
 
-desc "Runs all the tests"
+desc "Run tests"
 lane :test do
 scan(
 scheme: "ShipTracked",
@@ -19,42 +20,84 @@ sdk: "iphonesimulator9.3"
 )
 end
 
-desc "Submit a new Beta Build to Apple TestFlight"
-desc "This will also make sure the profile is up to date"
+desc "Calculate test code coverage score. Need to run test beforehand."
+lane :report_test_coverage do
+xcov(
+project: "ShipTracked.xcodeproj",
+scheme: "ShipTracked",
+output_directory: "xcov_output"
+)
+end
+
+desc "Run Build"
+lane :build do
+create_keychain(
+name: ENV["KEYCHAIN_NAME"],
+default_keychain: true,
+unlock: true,
+timeout: 3600,
+lock_when_sleeps: true,
+password: SecureRandom.base64
+)
+
+#Import distribution certificate
+import_certificate(
+certificate_path: "fastlane/cert/iosDeveloper.p12",
+certificate_password: ENV["KEY_PASSWORD"],
+keychain_name: ENV["KEYCHAIN_NAME"]
+)
+
+#import_certificate(
+#certificate_path: "fastlane/cert/iosDistribution.p12",
+#certificate_password: ENV["KEY_PASSWORD"],
+#keychain_name: ENV["KEYCHAIN_NAME"]
+#)
+
+#Fetch provisioning profile
+sigh(
+adhoc: false,
+username: ENV["ITUNES_CONNECT_USER"],
+cert_id: ENV["TEAM_ID"]
+)
+
+#increment_build_number
+set_info_plist_value(
+path: './ShipTracked/Info.plist',
+key: 'CFBundleVersion',
+value: "#{number_of_commits}"
+)
+
+
+#build
+gym(
+scheme: "ShipTracked",
+configuration: "App Store",
+sdk: "iphoneos9.3",
+clean: true,
+include_bitcode: false,
+include_symbols: true,
+use_legacy_build_api: true,
+export_method: "app-store"
+)
+
+delete_keychain(name: ENV["KEYCHAIN_NAME"])
+
+end
+
+desc "Submit a new beta build to App Store"
 lane :beta do
-# match(type: "appstore") # more information: https://codesigning.guide
-gym(scheme: "ShipTracked") # Build your app - more options available
-pilot
 
-# sh "your_script.sh"
-# You can also use other beta testing services here (run `fastlane actions`)
+#deploy to Testflight
+pilot(
+username: ENV["ITUNES_CONNECT_USER"],
+wait_processing_interval: 30,
+distribute_external: false,
+skip_submission: true,
+ipa: "ShipTracked.ipa"
+)
 end
 
-desc "Deploy a new version to the App Store"
-lane :appstore do
-# match(type: "appstore")
-# snapshot
-gym(scheme: "ShipTracked") # Build your app - more options available
-deliver(force: true)
-# frameit
-end
 
-# You can define as many lanes as you want
-
-after_all do |lane|
-# This block is called, only if the executed lane was successful
-
-# slack(
-#   message: "Successfully deployed new App Update."
-# )
-end
-
-error do |lane, exception|
-# slack(
-#   message: exception.message,
-#   success: false
-# )
-end
 end
 
 

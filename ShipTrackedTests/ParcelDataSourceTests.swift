@@ -28,9 +28,10 @@ class ParcelDataSourceTests: XCTestCase {
         XCTFail("waitForExpectationWithTimeout errored: \(error)")
       }
       
-      let parcel = self.mockParcelDataSource.dataObject[0] as! Parcel
-      XCTAssert(parcel.trackingNumber == self.invalidTrackingNumberForTesting)
-      XCTAssert(parcel.isTrackingNumberValid == false)
+      if let parcel = self.mockParcelDataSource.dataObject[0] as? Parcel {
+        XCTAssert(parcel.trackingNumber == self.invalidTrackingNumberForTesting)
+        XCTAssert(parcel.isTrackingNumberValid == false)
+      }
     }
   }
   
@@ -50,9 +51,10 @@ class ParcelDataSourceTests: XCTestCase {
         XCTFail("waitForExpectationWithTimeout errored: \(error)")
       }
       
-      let parcel = self.mockParcelDataSource.dataObject[0] as! Parcel
-      XCTAssert(parcel.trackingNumber == self.validTrackingNumberForTesting)
-      XCTAssert(parcel.isTrackingNumberValid == true)
+      if let parcel = self.mockParcelDataSource.dataObject[0] as? Parcel {
+        XCTAssert(parcel.trackingNumber == self.validTrackingNumberForTesting)
+        XCTAssert(parcel.isTrackingNumberValid == true)
+      }
     }
     
   }
