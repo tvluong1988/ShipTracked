@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */; };
 		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
 		8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDistribution.p12.enc; sourceTree = "<group>"; };
 		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
 		8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceTests.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 		8BB095CA1D4075DC00DB03F0 /* cert */ = {
 			isa = PBXGroup;
 			children = (
+				8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */,
 				8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */,
 			);
 			path = cert;
@@ -466,6 +469,7 @@
 				8BF3076E1D3313DE004B710E /* release_notes.txt in Resources */,
 				8BF307741D3313DE004B710E /* secondary_first_sub_category.txt in Resources */,
 				8BF307731D3313DE004B710E /* secondary_category.txt in Resources */,
+				8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */,
 				8BF307761D3313DE004B710E /* README.txt in Resources */,
 				8BF307711D3313DE004B710E /* primary_first_sub_category.txt in Resources */,
 				8BF3076D1D3313DE004B710E /* privacy_url.txt in Resources */,
