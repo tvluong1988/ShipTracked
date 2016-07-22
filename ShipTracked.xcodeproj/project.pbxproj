@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */; };
 		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
 		8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */; };
@@ -28,6 +29,7 @@
 		8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FBF1CEA631500B81C1B /* ParcelTests.swift */; };
 		8B429FCB1CEA631500B81C1B /* ShipTrackedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */; };
 		8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */; };
+		8BB095CD1D4075DC00DB03F0 /* iosDeveloper.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */; };
 		8BDACC251CF4FDD2005D6E9F /* AddressLocationData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */; };
 		8BDACC271CF4FF23005D6E9F /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDACC261CF4FF23005D6E9F /* Plist.swift */; };
 		8BF307451D330FC6004B710E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8BF307441D330FC6004B710E /* LICENSE */; };
@@ -74,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDistribution.p12.enc; sourceTree = "<group>"; };
 		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
 		8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceTests.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipTrackedUITests.swift; sourceTree = "<group>"; };
 		8B429FCC1CEA631500B81C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSourceTests.swift; sourceTree = "<group>"; };
+		8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDeveloper.p12.enc; sourceTree = "<group>"; };
 		8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AddressLocationData.plist; sourceTree = "<group>"; };
 		8BDACC261CF4FF23005D6E9F /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		8BF307441D330FC6004B710E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 		8B429F9B1CEA631500B81C1B = {
 			isa = PBXGroup;
 			children = (
+				8BF307771D331596004B710E /* .gitignore */,
 				8BF3074F1D3313DD004B710E /* fastlane */,
 				8BF3074E1D331111004B710E /* travis */,
 				8BF3074C1D331108004B710E /* .travis.yml */,
@@ -274,6 +279,15 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
+		8BB095CA1D4075DC00DB03F0 /* cert */ = {
+			isa = PBXGroup;
+			children = (
+				8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */,
+				8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */,
+			);
+			path = cert;
+			sourceTree = "<group>";
+		};
 		8BF3074E1D331111004B710E /* travis */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,12 +300,12 @@
 		8BF3074F1D3313DD004B710E /* fastlane */ = {
 			isa = PBXGroup;
 			children = (
+				8BB095CA1D4075DC00DB03F0 /* cert */,
 				8BF307501D3313DD004B710E /* Appfile */,
 				8BF307511D3313DD004B710E /* Deliverfile */,
 				8BF307521D3313DD004B710E /* Fastfile */,
 				8BF307531D3313DD004B710E /* metadata */,
 				8BF307631D3313DD004B710E /* screenshots */,
-				8BF307771D331596004B710E /* .gitignore */,
 			);
 			path = fastlane;
 			sourceTree = "<group>";
@@ -401,6 +415,7 @@
 				TargetAttributes = {
 					8B429FA31CEA631500B81C1B = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 38CJ7RTF4Q;
 					};
 					8B429FBA1CEA631500B81C1B = {
 						CreatedOnToolsVersion = 7.3;
@@ -454,11 +469,13 @@
 				8BF3076E1D3313DE004B710E /* release_notes.txt in Resources */,
 				8BF307741D3313DE004B710E /* secondary_first_sub_category.txt in Resources */,
 				8BF307731D3313DE004B710E /* secondary_category.txt in Resources */,
+				8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */,
 				8BF307761D3313DE004B710E /* README.txt in Resources */,
 				8BF307711D3313DE004B710E /* primary_first_sub_category.txt in Resources */,
 				8BF3076D1D3313DE004B710E /* privacy_url.txt in Resources */,
 				8B429FB21CEA631500B81C1B /* Assets.xcassets in Resources */,
 				8BF3076A1D3313DE004B710E /* keywords.txt in Resources */,
+				8BB095CD1D4075DC00DB03F0 /* iosDeveloper.p12.enc in Resources */,
 				8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */,
 				8BF307451D330FC6004B710E /* LICENSE in Resources */,
 				8BF3076B1D3313DE004B710E /* marketing_url.txt in Resources */,
@@ -578,6 +595,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -624,6 +642,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -649,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ShipTracked/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tvluong.ShipTracked;
@@ -660,6 +680,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = ShipTracked/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tvluong.ShipTracked;
