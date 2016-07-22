@@ -93,6 +93,7 @@ username: ENV["ITUNES_CONNECT_USER"],
 wait_processing_interval: 30,
 distribute_external: false,
 skip_submission: true,
+skip_waiting_for_build_processing: true,
 ipa: "ShipTracked.ipa"
 )
 end
