@@ -6,45 +6,49 @@
 //  Copyright © 2016 Thinh Luong. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
 @testable import ShipTracked
 
-class ParcelTests: XCTestCase {
-  
-  // MARK: Tests
-  func testParcelInvalidateTrackingNumber() {
-    let parcelWithInvalidatedTrackingNumber = parcel.invalidateTrackingNumber()
+
+class ParcelSpec: QuickSpec {
+  override func spec() {
     
-    XCTAssert(parcelWithInvalidatedTrackingNumber.isTrackingNumberValid == false)
+    describe("a parcel") {
+      //      var parcel: Parcel
+      let trackingNumber = "1111"
+      var parcel: Parcel!
+      
+      beforeEach() {
+        parcel = Parcel(trackingNumber: trackingNumber)
+        
+      }
+      
+      it("can be initialized with a tracking number") {
+        var parcel: Parcel?
+        
+        expect(parcel).to(beFalsy())
+        
+        parcel = Parcel(trackingNumber: trackingNumber)
+        
+        expect(parcel).to(beTruthy())
+        
+      }
+      
+      
+      context("that is initialized") {
+        it("can invalidate a tracking number") {
+          parcel = parcel.invalidateTrackingNumber()
+          
+          expect(parcel.isTrackingNumberValid).to(beFalse())
+        }
+        
+        it("can validate a tracking number") {
+          parcel = parcel.validateTrackingNumber()
+          
+          expect(parcel.isTrackingNumberValid).to(beTrue())
+        }
+      }
+    }
   }
-  
-  func testParcelValidateTrackingNumber() {
-    let parcelWithValidatedTrackingNumber = parcel.validateTrackingNumber()
-    
-    XCTAssert(parcelWithValidatedTrackingNumber.isTrackingNumberValid == true)
-  }
-  
-  func testParcelInit() {
-    var parcel: Parcel?
-    
-    XCTAssert(parcel == nil)
-    
-    parcel = Parcel(trackingNumber: "0000")
-    
-    XCTAssert(parcel != nil)
-  }
-  
-  // MARK: Lifecycle
-  override func setUp() {
-    super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
-  
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    super.tearDown()
-  }
-  
-  // MARK: Properties
-  let parcel = Parcel(trackingNumber: "0000", isTrackingNumberValid: false)
 }
