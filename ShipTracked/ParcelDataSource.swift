@@ -45,6 +45,9 @@ extension ParcelDataSource: UPSServiceDelegate {
     
     if let json = JSON(rawValue: data),
       let trackingNumber = json["TrackResponse"]["Shipment"]["InquiryNumber"]["Value"].string {
+      
+      print(data)
+      
       var matchTrackingNumber = false
       
       for (index, trackingNumberRequest) in trackingNumberRequests.enumerate() {

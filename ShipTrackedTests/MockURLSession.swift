@@ -9,6 +9,10 @@
 import Foundation
 @testable import ShipTracked
 
+class MockUPSService: UPSService {
+  
+}
+
 class MockURLSession: URLSessionProtocol {
   var nextDataTask = MockURLSessionDataTask()
   var nextData: NSData?
