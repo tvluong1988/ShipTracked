@@ -6,93 +6,65 @@
 //  Copyright © 2016 Thinh Luong. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
 @testable import ShipTracked
 
-class UPSServiceTests: XCTestCase {
+class UPSServiceSpec: QuickSpec {
   
-  // MARK: Tests
-  //  func testRequestParcelInfoWithValidTrackingNumber() {
-  //    let expectation = expectationWithDescription("upsService calls the delegate.")
-  //    spyDelegate.asyncExpectation = expectation
-  //    
-  //    upsService.requestParcelInfoWithTrackingNumber(validTrackingNumberForTesting)
-  //    
-  //    waitForExpectationsWithTimeout(5) {
-  //      error in
-  //      if let error = error {
-  //        XCTFail("waitForExpectationWithTimeout errored: \(error)")
-  //      }
-  //      
-  //      if self.spyDelegate.asyncResult == nil {
-  //        XCTFail("Expected delegate to be called")
-  //        return
-  //      }
-  //      
-  //    }
-  //    
-  //  }
-  //  
-  //  func testRequestParcelInfoWithInvalidTrackingNumber() {
-  //    let expectation = expectationWithDescription("upsService calls the delegate.")
-  //    spyDelegate.asyncExpectation = expectation
-  //    
-  //    upsService.requestParcelInfoWithTrackingNumber(invalidTrackingNumberForTesting)
-  //    
-  //    waitForExpectationsWithTimeout(5) {
-  //      error in
-  //      if let error = error {
-  //        XCTFail("waitForExpectationWithTimeout errored: \(error)")
-  //      }
-  //      
-  //      if self.spyDelegate.asyncResult == nil {
-  //        XCTFail("Expected delegate to be called")
-  //        return
-  //      }
-  //      
-  //    }
-  //    
-  //  }
-  
-  // MARK: Lifecycle
-  override func setUp() {
-    super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
-  
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    super.tearDown()
-  }
-  
-  // MARK: Properties
-  
-  lazy var upsService: UPSService = {
-    let service = UPSService()
-    service.delegate = self.spyDelegate
-    return service
-  }()
-  
-  var spyDelegate = SpyUPSServiceDelegate()
-  
-  private let validTrackingNumberForTesting = "1Z202Y36A898759591"
-  private let invalidTrackingNumberForTesting = "0000"
-  
-}
-
-class SpyUPSServiceDelegate: UPSServiceDelegate {
-  var asyncResult: AnyObject?
-  
-  var asyncExpectation: XCTestExpectation?
-  
-  @objc func didReceiveData(data: AnyObject) {
-    guard let expectation = asyncExpectation else {
-      XCTFail("SpyUPSServiceDelegate was not setup correctly. Missing XCTestExpectation reference.")
-      return
+  // MARK: Test
+  override func spec() {
+    var upsService: UPSService!
+    let mockURLSession = MockURLSession()
+    
+    // JSON Production Endpoint
+    //    let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
+    
+    // JSON Testing Endpoint
+    let endpointURLTesting = "https://wwwcie.ups.com/json/Track"
+    
+    let trackingNumber = "1Z202Y36A898759591"
+    
+    describe("given a UPSService") {
+      
+      beforeEach() {
+        upsService = UPSService(session: mockURLSession)
+      }
+      
+      context("when supplied with a tracking number") {
+        it("should send a HTTP Post request at the correct UPS endpoint") {
+          upsService.requestParcelInfoWithTrackingNumber(trackingNumber)
+          
+          expect(mockURLSession.lastRequest?.HTTPMethod).to(contain("POST"))
+          expect(mockURLSession.lastRequest?.URL?.absoluteString).to(contain(endpointURLTesting))
+          expect(mockURLSession.nextDataTask.resumeWasCalled).to(beTrue())
+          
+        }
+      }
     }
     
-    asyncResult = data
-    expectation.fulfill()
+  }
+  
+  
+  // MARK: Mocks
+  class MockURLSession: URLSessionProtocol {
+    var nextDataTask = MockURLSessionDataTask()
+    private (set) var lastRequest: NSURLRequest?
+    
+    func dataTaskWithRequest(request: NSURLRequest, completionHandler: DataTaskResult) -> URLSessionDataTaskProtocol {
+      lastRequest = request
+      
+      return nextDataTask
+    }
+    
+  }
+  
+  class MockURLSessionDataTask: URLSessionDataTaskProtocol {
+    private (set) var resumeWasCalled = false
+    
+    func resume() {
+      resumeWasCalled = true
+    }
   }
 }
 

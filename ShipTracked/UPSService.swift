@@ -22,6 +22,11 @@ class UPSService {
     
   }
   
+  // MARK: Inits
+  init(session: URLSessionProtocol = NSURLSession.sharedSession()) {
+    self.session = session
+  }
+  
   // MARK: Properties
   weak var delegate: UPSServiceDelegate?
   
@@ -36,7 +41,7 @@ class UPSService {
   private let accessLicenseNumber = "DD0BE12EB3B46D36"
   private let requestOption = "7"
   
-  private let session = NSURLSession.sharedSession()
+  private let session: URLSessionProtocol
 }
 
 // MARK: - Private Functions
