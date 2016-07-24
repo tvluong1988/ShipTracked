@@ -30,6 +30,7 @@
 		8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FBF1CEA631500B81C1B /* ParcelTests.swift */; };
 		8B429FCB1CEA631500B81C1B /* ShipTrackedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */; };
 		8B5CE3D21D443755003E00F4 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */; };
+		8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */; };
 		8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */; };
 		8BB095CD1D4075DC00DB03F0 /* iosDeveloper.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */; };
 		8BDACC251CF4FDD2005D6E9F /* AddressLocationData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */; };
@@ -108,6 +109,7 @@
 		8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipTrackedUITests.swift; sourceTree = "<group>"; };
 		8B429FCC1CEA631500B81C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSourceTests.swift; sourceTree = "<group>"; };
 		8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDeveloper.p12.enc; sourceTree = "<group>"; };
 		8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AddressLocationData.plist; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */,
 				8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */,
 				8B429FC11CEA631500B81C1B /* Info.plist */,
+				8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */,
 			);
 			path = ShipTrackedTests;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */,
 				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */,
 				8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */,
 				8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */,

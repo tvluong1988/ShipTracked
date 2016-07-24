@@ -45,27 +45,6 @@ class UPSServiceSpec: QuickSpec {
     
   }
   
-  
-  // MARK: Mocks
-  class MockURLSession: URLSessionProtocol {
-    var nextDataTask = MockURLSessionDataTask()
-    private (set) var lastRequest: NSURLRequest?
-    
-    func dataTaskWithRequest(request: NSURLRequest, completionHandler: DataTaskResult) -> URLSessionDataTaskProtocol {
-      lastRequest = request
-      
-      return nextDataTask
-    }
-    
-  }
-  
-  class MockURLSessionDataTask: URLSessionDataTaskProtocol {
-    private (set) var resumeWasCalled = false
-    
-    func resume() {
-      resumeWasCalled = true
-    }
-  }
 }
 
 

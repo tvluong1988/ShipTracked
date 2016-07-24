@@ -45,7 +45,6 @@ extension ParcelDataSource: UPSServiceDelegate {
     
     if let json = JSON(rawValue: data),
       let trackingNumber = json["TrackResponse"]["Shipment"]["InquiryNumber"]["Value"].string {
-      print("Did receive data: \(json)")
       var matchTrackingNumber = false
       
       for (index, trackingNumberRequest) in trackingNumberRequests.enumerate() {
@@ -57,7 +56,6 @@ extension ParcelDataSource: UPSServiceDelegate {
       
       if matchTrackingNumber {
         if let parcel = extractParcelFromJSON(json) {
-          print(parcel)
           
           if let tableView = tableView {
             dispatch_async(dispatch_get_main_queue()) {

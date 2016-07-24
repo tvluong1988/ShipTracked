@@ -61,28 +61,34 @@ private extension UPSService {
     let task = session.dataTaskWithRequest(request) {
       data, response, error in
       
-      let response = response as! NSHTTPURLResponse
-      let statusCodeDescription = NSHTTPURLResponse.localizedStringForStatusCode(response.statusCode)
-      
-      switch response.statusCode {
-      case 200...300:
-        break
-      default:
-        print("status code: \(response.statusCode), description: \(statusCodeDescription)")
-        return
+      if let response = response as? NSHTTPURLResponse {
+        
+        switch response.statusCode {
+        case 200...300:
+          break
+        default:
+          let statusCodeDescription = NSHTTPURLResponse.localizedStringForStatusCode(response.statusCode)
+          
+          print("status code: \(response.statusCode), description: \(statusCodeDescription)")
+          return
+        }
       }
+      
       
       if let error = error {
         self.delegate?.didCompleteWithError?(error)
         return
       }
       
-      do {
-        let result = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+      if let data = data {
         
-        self.delegate?.didReceiveData(result)
-      } catch {
-        print(error)
+        do {
+          let result = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+          
+          self.delegate?.didReceiveData(result)
+        } catch {
+          print(error)
+        }
       }
     }
     
