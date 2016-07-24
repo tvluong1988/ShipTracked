@@ -20,6 +20,7 @@ struct ParcelList {
   
   // MARK: Properties
   let parcels: [Parcel]
+  
 }
 
 private extension ParcelList {
@@ -33,12 +34,22 @@ private extension ParcelList {
 
 extension ParcelList: DataList {
   
-  var numberOfItems: Int {
+  var count: Int {
     return parcels.count
   }
   
   subscript(index: Int) -> Item {
     return parcels[index]
+  }
+  
+  var first: Item? {
+    var parcel: Parcel?
+    
+    if parcels.count > 0 {
+      parcel = parcels[0]
+    }
+    
+    return parcel
   }
   
   func addNewItem(item: Item, atIndex index: Int) -> ParcelList {

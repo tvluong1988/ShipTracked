@@ -15,11 +15,20 @@ class ParcelDataSource: DataSource {
     trackingNumberRequests.append(trackingNumber)
     trackingNumberRequestCount += 1
     
-    upsService.requestParcelInfoWithTrackingNumber(trackingNumber)
+    //    upsService.requestParcelInfoWithTrackingNumber(trackingNumber)
+    
+    upsService.requestParcelWithTrackingNumber(trackingNumber, completionHandler: dataTaskResultHandler)
+  }
+  
+  private func dataTaskResultHandler(data: NSData?, response: NSURLResponse?, error: NSError?) -> Void {
+    print("Data Task Result Handler was called!")
+    return
   }
   
   // MARK: Lifecycle
-  init() {
+  init(upsService: UPSService = UPSService()) {
+    self.upsService = upsService
+    
     super.init(dataObject: ParcelList())
   }
   
@@ -29,11 +38,13 @@ class ParcelDataSource: DataSource {
   private var trackingNumberRequests = [String]()
   private var trackingNumberRequestCount: Int = 0
   
-  private lazy var upsService: UPSService = {
-    let service = UPSService()
-    service.delegate = self
-    return service
-  }()
+  private var upsService: UPSService
+  
+  //  private lazy var upsService: UPSService = {
+  //    let service = UPSService()
+  //    service.delegate = self
+  //    return service
+  //  }()
   
   override var conditionForAdding: Bool {
     return true
@@ -46,7 +57,7 @@ extension ParcelDataSource: UPSServiceDelegate {
     if let json = JSON(rawValue: data),
       let trackingNumber = json["TrackResponse"]["Shipment"]["InquiryNumber"]["Value"].string {
       
-      print(data)
+      print(json)
       
       var matchTrackingNumber = false
       
