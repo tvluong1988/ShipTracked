@@ -22,6 +22,16 @@ class UPSService {
     
   }
   
+  func requestParcelWithTrackingNumber(trackingNumber: String, completionHandler: DataTaskResult) {
+    
+    if let body = createRequestBodyJSONWithTrackingNumber(trackingNumber),
+      let request = createNSURLRequestWithBody(body)  {
+      
+      let task = session.dataTaskWithRequest(request, completionHandler: completionHandler)
+      task.resume()
+    }
+  }
+  
   // MARK: Inits
   init(session: URLSessionProtocol = NSURLSession.sharedSession()) {
     self.session = session
