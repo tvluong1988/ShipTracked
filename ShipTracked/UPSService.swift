@@ -9,7 +9,7 @@
 import Foundation
 
 @objc protocol UPSServiceDelegate: class {
-  optional func didCompleteWithError(error: NSError)
+  optional func didFinishWithError(error: NSError)
   func didReceiveData(data: AnyObject)
 }
 
@@ -76,7 +76,7 @@ private extension UPSService {
       
       
       if let error = error {
-        self.delegate?.didCompleteWithError?(error)
+        self.delegate?.didFinishWithError?(error)
         return
       }
       
