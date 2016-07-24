@@ -19,7 +19,7 @@ class UPSServiceSpec: QuickSpec {
     let mockURLSession = MockURLSession()
     
     // JSON Production Endpoint
-    //    let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
+    let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
     
     // JSON Testing Endpoint
     let endpointURLTesting = "https://wwwcie.ups.com/json/Track"
@@ -31,10 +31,10 @@ class UPSServiceSpec: QuickSpec {
       
       beforeEach() {
         upsService = UPSService(session: mockURLSession)
-        upsService.delegate = self
-        
-        self.didFinishWithErrorWasCalled = false
-        self.didReceiveDataWasCalled = false
+      }
+      
+      afterEach() {
+        upsService = nil
       }
       
       context("when requesting parcel info with a tracking number") {
@@ -102,20 +102,6 @@ class UPSServiceSpec: QuickSpec {
         }
       }
     }
-  }
-  
-  // MARK: Properties
-  var didFinishWithErrorWasCalled = false
-  var didReceiveDataWasCalled = false
-}
-
-extension UPSServiceSpec: UPSServiceDelegate {
-  func didReceiveData(data: AnyObject) {
-    didReceiveDataWasCalled = true
-  }
-  
-  func didFinishWithError(error: NSError) {
-    didFinishWithErrorWasCalled = true
   }
 }
 
