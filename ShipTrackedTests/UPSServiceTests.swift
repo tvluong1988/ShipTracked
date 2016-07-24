@@ -52,7 +52,7 @@ class UPSServiceSpec: QuickSpec {
             
             upsService.requestParcelInfoWithTrackingNumber(trackingNumber)
             
-            expect(self.didFinishWithErrorWasCalled).to(beTrue())
+            expect(self.didFinishWithErrorWasCalled).toEventually(beTrue())
           }
         }
         
@@ -67,7 +67,7 @@ class UPSServiceSpec: QuickSpec {
             
             upsService.requestParcelInfoWithTrackingNumber(trackingNumber)
             
-            expect(self.didReceiveDataWasCalled).to(beTrue())
+            expect(self.didReceiveDataWasCalled).toEventually(beTrue())
           }
         }
       }
