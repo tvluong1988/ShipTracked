@@ -13,11 +13,13 @@ import Nimble
 
 class ParcelSpec: QuickSpec {
   
-  // MARK: Tests
   override func spec() {
+    
+    // MARK: Properties
     let trackingNumber = "1Z202Y36A898759591"
     var parcel: Parcel!
     
+    // MARK: Tests
     describe("a parcel") {
       it("can be initialized with a tracking number") {
         parcel = nil

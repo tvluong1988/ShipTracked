@@ -8,19 +8,7 @@
 
 import Foundation
 
-@objc protocol UPSServiceDelegate: class {
-  optional func didFinishWithError(error: NSError)
-  func didReceiveData(data: AnyObject)
-}
-
 class UPSService {
-  
-  // MARK: Functions
-  func requestParcelInfoWithTrackingNumber(trackingNumber: String) {
-    
-    sendDataTaskWithTrackingNumber(trackingNumber)
-    
-  }
   
   func requestParcelWithTrackingNumber(trackingNumber: String, completionHandler: DataTaskResult) {
     
@@ -38,8 +26,6 @@ class UPSService {
   }
   
   // MARK: Properties
-  weak var delegate: UPSServiceDelegate?
-  
   // JSON Production Endpoint
   private let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
   
@@ -56,54 +42,6 @@ class UPSService {
 
 // MARK: - Private Functions
 private extension UPSService {
-  
-  func sendDataTaskWithTrackingNumber(trackingNumber: String) {
-    guard let body = createRequestBodyJSONWithTrackingNumber(trackingNumber),
-      let request = createNSURLRequestWithBody(body) else {
-        return
-    }
-    
-    sendDataTaskWithRequest(request)
-    
-  }
-  
-  func sendDataTaskWithRequest(request: NSURLRequest) {
-    let task = session.dataTaskWithRequest(request) {
-      data, response, error in
-      
-      if let response = response as? NSHTTPURLResponse {
-        
-        switch response.statusCode {
-        case 200...300:
-          break
-        default:
-          let statusCodeDescription = NSHTTPURLResponse.localizedStringForStatusCode(response.statusCode)
-          
-          print("status code: \(response.statusCode), description: \(statusCodeDescription)")
-          return
-        }
-      }
-      
-      
-      if let error = error {
-        self.delegate?.didFinishWithError?(error)
-        return
-      }
-      
-      if let data = data {
-        
-        do {
-          let result = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-          
-          self.delegate?.didReceiveData(result)
-        } catch {
-          print(error)
-        }
-      }
-    }
-    
-    task.resume()
-  }
   
   func createNSURLRequestWithBody(body: NSData) -> NSURLRequest? {
     guard let url = NSURL(string: endpointURLTesting) else {

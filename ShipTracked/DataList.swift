@@ -29,6 +29,4 @@ extension DataList {
   
 }
 
-protocol Item {
-  
-}
+protocol Item {}

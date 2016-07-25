@@ -19,7 +19,7 @@ protocol SourceType: UITableViewDataSource {
   var conditionForAdding: Bool {get}
 }
 
-// MARK: - Methods
+// MARK: - Default extensions
 extension SourceType {
   
   func insertTopRowIn(tableView: UITableView) {

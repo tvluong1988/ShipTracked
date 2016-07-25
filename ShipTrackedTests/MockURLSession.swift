@@ -9,18 +9,9 @@
 import Foundation
 @testable import ShipTracked
 
-class MockUPSService: UPSService {
-  
-}
-
 class MockURLSession: URLSessionProtocol {
-  var nextDataTask = MockURLSessionDataTask()
-  var nextData: NSData?
-  var nextError: NSError?
-  var nextResponse: NSHTTPURLResponse?
   
-  private (set) var lastRequest: NSURLRequest?
-  
+  // MARK: Functions
   func dataTaskWithRequest(request: NSURLRequest, completionHandler: DataTaskResult) -> URLSessionDataTaskProtocol {
     lastRequest = request
     
@@ -29,12 +20,22 @@ class MockURLSession: URLSessionProtocol {
     return nextDataTask
   }
   
+  // MARK: Properties
+  var nextDataTask = MockURLSessionDataTask()
+  var nextData: NSData?
+  var nextError: NSError?
+  var nextResponse: NSHTTPURLResponse?
+  private (set) var lastRequest: NSURLRequest?
 }
 
+
 class MockURLSessionDataTask: URLSessionDataTaskProtocol {
-  private (set) var resumeWasCalled = false
   
+  // MARK: Functions
   func resume() {
     resumeWasCalled = true
   }
+  
+  // MARK: Properties
+  private (set) var resumeWasCalled = false
 }

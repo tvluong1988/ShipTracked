@@ -12,9 +12,9 @@ import Nimble
 
 class UPSServiceSpec: QuickSpec {
   
-  // MARK: Test
   override func spec() {
     
+    // MARK: Properties
     var upsService: UPSService!
     let mockURLSession = MockURLSession()
     
@@ -26,7 +26,7 @@ class UPSServiceSpec: QuickSpec {
     
     let trackingNumber = "1Z202Y36A898759591"
     
-    
+    // MARK: Tests
     describe("given a UPSService") {
       
       beforeEach() {

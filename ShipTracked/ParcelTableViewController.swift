@@ -64,7 +64,11 @@ class ParcelTableViewController: UITableViewController {
   }
   
   // MARK: Properties
-  private var dataSource = ParcelDataSource()
+  lazy private var dataSource: ParcelDataSource = {
+    let upsService = UPSService()
+    return ParcelDataSource(upsService: upsService)
+  }()
+  
   let validTrackingNumberForTesting = "1Z202Y36A898759591"
   let invalidTrackingNumberForTesting = "0000"
 }
