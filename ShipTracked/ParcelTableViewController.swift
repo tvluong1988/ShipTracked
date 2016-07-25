@@ -37,10 +37,7 @@ class ParcelTableViewController: UITableViewController {
   }
   
   // MARK: Properties
-  lazy private var dataSource: ParcelDataSource = {
-    let upsService = UPSService()
-    return ParcelDataSource(upsService: upsService)
-  }()
+  private var dataSource = ParcelDataSource()
 }
 
 // MARK: - Private functions

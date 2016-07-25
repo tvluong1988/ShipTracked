@@ -20,7 +20,7 @@ class ParcelDataSource: DataSource {
   }
   
   // MARK: Lifecycle
-  init(upsService: UPSService) {
+  init(upsService: UPSService = UPSService()) {
     self.upsService = upsService
     
     super.init(dataObject: ParcelList())
