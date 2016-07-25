@@ -6,104 +6,139 @@
 //  Copyright © 2016 Thinh Luong. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
 @testable import ShipTracked
 
-class ParcelDataSourceTests: XCTestCase {
+class ParcelDataSourceSpec: QuickSpec {
   
-  // MARK: Functions
-  //  func testAddParcelWithTrackingNumberWithInvalidTrackingNumber() {
-  //    XCTAssert(mockParcelDataSource.dataObject.numberOfItems == 0)
-  //    
-  //    let expectation = expectationWithDescription("ParcelManager retrieve parcel information from UPSService.")
-  //    
-  //    mockParcelDataSource.asyncExpectation = expectation
-  //    
-  //    mockParcelDataSource.addParcelWithTrackingNumber(invalidTrackingNumberForTesting)
-  //    
-  //    waitForExpectationsWithTimeout(1) {
-  //      error in
-  //      
-  //      if let error = error {
-  //        XCTFail("waitForExpectationWithTimeout errored: \(error)")
-  //      }
-  //      
-  //      if let parcel = self.mockParcelDataSource.dataObject[0] as? Parcel {
-  //        XCTAssert(parcel.trackingNumber == self.invalidTrackingNumberForTesting)
-  //        XCTAssert(parcel.isTrackingNumberValid == false)
-  //      }
-  //    }
-  //  }
-  //  
-  //  func testAddParcelWithTrackingNumberWithValidTrackingNumber() {
-  //    XCTAssert(mockParcelDataSource.dataObject.numberOfItems == 0)
-  //    
-  //    let expectation = expectationWithDescription("ParcelManager retrieve parcel information from UPSService.")
-  //    
-  //    mockParcelDataSource.asyncExpectation = expectation
-  //    
-  //    mockParcelDataSource.addParcelWithTrackingNumber(validTrackingNumberForTesting)
-  //    
-  //    waitForExpectationsWithTimeout(1) {
-  //      error in
-  //      
-  //      if let error = error {
-  //        XCTFail("waitForExpectationWithTimeout errored: \(error)")
-  //      }
-  //      
-  //      if let parcel = self.mockParcelDataSource.dataObject[0] as? Parcel {
-  //        XCTAssert(parcel.trackingNumber == self.validTrackingNumberForTesting)
-  //        XCTAssert(parcel.isTrackingNumberValid == true)
-  //      }
-  //    }
-  //    
-  //  }
-  
-  // MARK: Lifecycle
-  override func setUp() {
-    super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
-  
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    super.tearDown()
-  }
-  
-  // MARK: Properties
-  lazy var mockParcelDataSource: MockParcelDataSource = {
-    var dataSource = MockParcelDataSource()
-    dataSource.tableView = UITableView()
-    return dataSource
-  }()
-  let validTrackingNumberForTesting = "1Z202Y36A898759591"
-  let invalidTrackingNumberForTesting = "0000"
-}
-
-class MockParcelDataSource: ParcelDataSource {
-  var asyncExpectation: XCTestExpectation?
-  
-  override func didReceiveData(data: AnyObject) {
-    super.didReceiveData(data)
+  override func spec() {
     
-    guard let expectation = asyncExpectation else {
-      return
+    // MARK: Properties
+    let mockURLSession = MockURLSession()
+    let mockUPSService = UPSService(session: mockURLSession)
+    var mockTableView: UITableView?
+    
+    var parcelDataSource: ParcelDataSource!
+    
+    let trackingNumber = "1Z202Y36A898759591"
+    let invalidTrackingNumber = "0000"
+    
+    // MARK: Tests
+    describe("given a ParcelDataSource") {
+      
+      
+      beforeEach() {
+        mockTableView = UITableView()
+        parcelDataSource = ParcelDataSource(upsService: mockUPSService)
+        parcelDataSource.tableView = mockTableView
+      }
+      
+      afterEach() {
+        mockTableView = nil
+        parcelDataSource.tableView = nil
+        parcelDataSource = nil
+        
+      }
+      
+      context("when addParcelWithTrackingNumber is called with a valid tracking number") {
+        it("then it should add a new parcel with tracking number validated to the parcelDataSource dataObject list") {
+          let invalidDataResponse = self.createValidDataResponse()
+          mockURLSession.nextData = invalidDataResponse
+          
+          parcelDataSource.addParcelWithTrackingNumber(trackingNumber)
+          
+          expect(parcelDataSource.dataObject.count).toEventually(equal(1))
+          
+          if let parcel = parcelDataSource.dataObject.first as? Parcel {
+            expect(parcel.isTrackingNumberValid).toEventually(beTrue())
+          }
+        }
+      }
+      
+      context("when addParcelWithTrackingNumber is called with an invalid tracking number") {
+        it("then it should add a new parcel with tracking number invalidated to the parcelDataSource dataObject list") {
+          let validDataResponse = self.createInvalidDataResponse()
+          mockURLSession.nextData = validDataResponse
+          
+          parcelDataSource.addParcelWithTrackingNumber(invalidTrackingNumber)
+          
+          expect(parcelDataSource.dataObject.count).toEventually(equal(1))
+          
+          if let parcel = parcelDataSource.dataObject.first as? Parcel {
+            expect(parcel.isTrackingNumberValid).toEventually(beFalse())
+          }
+        }
+      }
     }
-    
-    expectation.fulfill()
-    
   }
 }
 
-
-
-
-
-
-
-
-
-
+// MARK: - Private functions
+private extension ParcelDataSourceSpec {
+  func createValidDataResponse() -> NSData {
+    
+    let address =
+      ["Address": ["PostalCode" : "34639",
+        "City" : "LAND O LAKES",
+        "CountryCode" : "US",
+        "StateProvinceCode" : "FL"
+        ]
+    ]
+    
+    let activityLocation =
+      ["ActivityLocation":[address]]
+    
+    let activity =
+      ["Activity": [activityLocation,
+        activityLocation,
+        activityLocation
+        ]
+    ]
+    
+    let shipmentAddresses =
+      [
+        ["Type": ["Code" : "01"],
+          "Address": ["AddressLine": "Starting Address",
+            "City": "Starting City",
+            "StateProvinceCode": "IA",
+            "PostalCode": "50000",
+            "CountryCode": "US"
+          ]
+        ],
+        ["Type": ["Code" : "02"],
+          "Address": ["AddressLine": "Ending Address",
+            "City": "Ending City",
+            "StateProvinceCode": "IA",
+            "PostalCode": "50000",
+            "CountryCode": "US"
+          ]
+        ]
+    ]
+    
+    let validJSONResponse =
+      ["TrackResponse":
+        ["Shipment":[
+          "InquiryNumber": ["Value": "1Z202Y36A898759591"],
+          "Package": activity,
+          "ShipmentAddress": shipmentAddresses
+          
+          ]
+        ]
+    ]
+    
+    let data = try! NSJSONSerialization.dataWithJSONObject(validJSONResponse, options: .PrettyPrinted)
+    return data
+    
+  }
+  
+  func createInvalidDataResponse() -> NSData {
+    let invalidJSONResponse = ["FailKey":"FailValue"]
+    
+    let data = try! NSJSONSerialization.dataWithJSONObject(invalidJSONResponse, options: .PrettyPrinted)
+    return data
+  }
+}
 
 
 

@@ -27,7 +27,7 @@ class DataSource: NSObject, SourceType {
 extension DataSource: UITableViewDataSource {
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return dataObject.numberOfItems
+    return dataObject.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

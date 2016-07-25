@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ED4B2F961E9F485606466A8 /* Pods_ShipTracked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA967ED4DCEE37BC5C9D40A /* Pods_ShipTracked.framework */; };
+		5B294998A4D6646063EEDA51 /* Pods_ShipTrackedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */; };
 		8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */; };
 		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
 		8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */; };
 		8B21ECC31CEAA30000EAA1D8 /* ParcelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */; };
-		8B21ECC51CEAB52000EAA1D8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC41CEAB52000EAA1D8 /* SwiftyJSON.swift */; };
 		8B21ECC81CEAC05C00EAA1D8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC71CEAC05C00EAA1D8 /* Address.swift */; };
 		8B3711401CF22778009F1B9A /* ParcelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B37113F1CF22778009F1B9A /* ParcelList.swift */; };
 		8B3711421CF228A7009F1B9A /* SourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711411CF228A7009F1B9A /* SourceType.swift */; };
@@ -28,6 +29,8 @@
 		8B429FB51CEA631500B81C1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FB31CEA631500B81C1B /* LaunchScreen.storyboard */; };
 		8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FBF1CEA631500B81C1B /* ParcelTests.swift */; };
 		8B429FCB1CEA631500B81C1B /* ShipTrackedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */; };
+		8B5CE3D21D443755003E00F4 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */; };
+		8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */; };
 		8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */; };
 		8BB095CD1D4075DC00DB03F0 /* iosDeveloper.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */; };
 		8BDACC251CF4FDD2005D6E9F /* AddressLocationData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */; };
@@ -76,12 +79,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D0559D48229AF7EA7B56A55 /* Pods-ShipTracked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipTracked.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShipTracked/Pods-ShipTracked.release.xcconfig"; sourceTree = "<group>"; };
+		2C3183F074C96F47E9FE6175 /* Pods-ShipTrackedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipTrackedTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShipTrackedTests/Pods-ShipTrackedTests.release.xcconfig"; sourceTree = "<group>"; };
+		636F96F69F017D51AB47BC85 /* Pods-ShipTracked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipTracked.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShipTracked/Pods-ShipTracked.debug.xcconfig"; sourceTree = "<group>"; };
+		694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShipTrackedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDistribution.p12.enc; sourceTree = "<group>"; };
 		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
 		8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceTests.swift; sourceTree = "<group>"; };
 		8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSource.swift; sourceTree = "<group>"; };
-		8B21ECC41CEAB52000EAA1D8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		8B21ECC71CEAC05C00EAA1D8 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		8B37113F1CF22778009F1B9A /* ParcelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelList.swift; sourceTree = "<group>"; };
 		8B3711411CF228A7009F1B9A /* SourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceType.swift; sourceTree = "<group>"; };
@@ -103,6 +109,8 @@
 		8B429FC61CEA631500B81C1B /* ShipTrackedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipTrackedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B429FCA1CEA631500B81C1B /* ShipTrackedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipTrackedUITests.swift; sourceTree = "<group>"; };
 		8B429FCC1CEA631500B81C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSourceTests.swift; sourceTree = "<group>"; };
 		8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDeveloper.p12.enc; sourceTree = "<group>"; };
 		8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AddressLocationData.plist; sourceTree = "<group>"; };
@@ -131,6 +139,8 @@
 		8BF307621D3313DD004B710E /* secondary_second_sub_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = secondary_second_sub_category.txt; sourceTree = "<group>"; };
 		8BF307641D3313DE004B710E /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		8BF307771D331596004B710E /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		C3142B184259660A3C6C9D6E /* Pods-ShipTrackedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipTrackedTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShipTrackedTests/Pods-ShipTrackedTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EEA967ED4DCEE37BC5C9D40A /* Pods_ShipTracked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShipTracked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED4B2F961E9F485606466A8 /* Pods_ShipTracked.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B294998A4D6646063EEDA51 /* Pods_ShipTrackedTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +170,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		501601936696620D9B6697F1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3142B184259660A3C6C9D6E /* Pods-ShipTrackedTests.debug.xcconfig */,
+				2C3183F074C96F47E9FE6175 /* Pods-ShipTrackedTests.release.xcconfig */,
+				636F96F69F017D51AB47BC85 /* Pods-ShipTracked.debug.xcconfig */,
+				0D0559D48229AF7EA7B56A55 /* Pods-ShipTracked.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		78831C3826A21AA1FC3F7A96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */,
+				EEA967ED4DCEE37BC5C9D40A /* Pods_ShipTracked.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8B21ECC61CEAB56B00EAA1D8 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +233,6 @@
 		8B37114E1CF23B5B009F1B9A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */,
 				8B3711431CF228AD009F1B9A /* DataSource.swift */,
 				8B3711451CF228B4009F1B9A /* DataList.swift */,
 				8B3711411CF228A7009F1B9A /* SourceType.swift */,
@@ -224,6 +255,8 @@
 				8B429FBE1CEA631500B81C1B /* ShipTrackedTests */,
 				8B429FC91CEA631500B81C1B /* ShipTrackedUITests */,
 				8B429FA51CEA631500B81C1B /* Products */,
+				501601936696620D9B6697F1 /* Pods */,
+				78831C3826A21AA1FC3F7A96 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,6 +273,7 @@
 		8B429FA61CEA631500B81C1B /* ShipTracked */ = {
 			isa = PBXGroup;
 			children = (
+				8B5CE3D31D4437B6003E00F4 /* Service */,
 				8B21ECC61CEAB56B00EAA1D8 /* Support */,
 				8B37114C1CF23B47009F1B9A /* ViewController */,
 				8B37114B1CF23B34009F1B9A /* Model */,
@@ -247,6 +281,7 @@
 				8B37114E1CF23B5B009F1B9A /* DataSource */,
 				8BAE47121CEE3CF500574208 /* Library */,
 				8BDACC261CF4FF23005D6E9F /* Plist.swift */,
+				8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */,
 			);
 			path = ShipTracked;
 			sourceTree = "<group>";
@@ -258,6 +293,7 @@
 				8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */,
 				8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */,
 				8B429FC11CEA631500B81C1B /* Info.plist */,
+				8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */,
 			);
 			path = ShipTrackedTests;
 			sourceTree = "<group>";
@@ -271,10 +307,17 @@
 			path = ShipTrackedUITests;
 			sourceTree = "<group>";
 		};
+		8B5CE3D31D4437B6003E00F4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		8BAE47121CEE3CF500574208 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				8B21ECC41CEAB52000EAA1D8 /* SwiftyJSON.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -354,9 +397,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B429FCF1CEA631500B81C1B /* Build configuration list for PBXNativeTarget "ShipTracked" */;
 			buildPhases = (
+				D5AB4FAABECF634401D7C44C /* [CP] Check Pods Manifest.lock */,
 				8B429FA01CEA631500B81C1B /* Sources */,
 				8B429FA11CEA631500B81C1B /* Frameworks */,
 				8B429FA21CEA631500B81C1B /* Resources */,
+				1B8833EC17882E455183FF1F /* [CP] Embed Pods Frameworks */,
+				AA1411753E3208B808A6C110 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -371,9 +417,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B429FD21CEA631500B81C1B /* Build configuration list for PBXNativeTarget "ShipTrackedTests" */;
 			buildPhases = (
+				9DBBDC09E1954EE8F46B66EE /* [CP] Check Pods Manifest.lock */,
 				8B429FB71CEA631500B81C1B /* Sources */,
 				8B429FB81CEA631500B81C1B /* Frameworks */,
 				8B429FB91CEA631500B81C1B /* Resources */,
+				F572414969124D912D33C35E /* [CP] Embed Pods Frameworks */,
+				ADF999F2E1CAF5C016D778F9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -500,6 +549,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B8833EC17882E455183FF1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShipTracked/Pods-ShipTracked-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DBBDC09E1954EE8F46B66EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AA1411753E3208B808A6C110 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShipTracked/Pods-ShipTracked-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADF999F2E1CAF5C016D778F9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShipTrackedTests/Pods-ShipTrackedTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5AB4FAABECF634401D7C44C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F572414969124D912D33C35E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShipTrackedTests/Pods-ShipTrackedTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8B429FA01CEA631500B81C1B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -515,7 +657,7 @@
 				8B21ECC31CEAA30000EAA1D8 /* ParcelDataSource.swift in Sources */,
 				8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */,
 				8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */,
-				8B21ECC51CEAB52000EAA1D8 /* SwiftyJSON.swift in Sources */,
+				8B5CE3D21D443755003E00F4 /* URLSessionProtocol.swift in Sources */,
 				8B3711421CF228A7009F1B9A /* SourceType.swift in Sources */,
 				8B21ECC81CEAC05C00EAA1D8 /* Address.swift in Sources */,
 				8B3711401CF22778009F1B9A /* ParcelList.swift in Sources */,
@@ -528,6 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */,
 				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */,
 				8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */,
 				8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */,
@@ -666,6 +809,7 @@
 		};
 		8B429FD01CEA631500B81C1B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 636F96F69F017D51AB47BC85 /* Pods-ShipTracked.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -678,6 +822,7 @@
 		};
 		8B429FD11CEA631500B81C1B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D0559D48229AF7EA7B56A55 /* Pods-ShipTracked.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -691,6 +836,7 @@
 		};
 		8B429FD31CEA631500B81C1B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3142B184259660A3C6C9D6E /* Pods-ShipTrackedTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ShipTrackedTests/Info.plist;
@@ -703,6 +849,7 @@
 		};
 		8B429FD41CEA631500B81C1B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C3183F074C96F47E9FE6175 /* Pods-ShipTrackedTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ShipTrackedTests/Info.plist;

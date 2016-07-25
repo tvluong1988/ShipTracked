@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ParcelDataSource: DataSource {
   
@@ -15,11 +16,68 @@ class ParcelDataSource: DataSource {
     trackingNumberRequests.append(trackingNumber)
     trackingNumberRequestCount += 1
     
-    upsService.requestParcelInfoWithTrackingNumber(trackingNumber)
+    upsService.requestParcelWithTrackingNumber(trackingNumber, completionHandler: dataTaskResultHandler)
+  }
+  
+  func dataTaskResultHandler(data: NSData?, response: NSURLResponse?, error: NSError?) -> Void {
+    
+    
+    guard let data = data else {
+      return
+    }
+    
+    let json = JSON(data: data)
+    
+    guard let trackingNumber = json["TrackResponse"]["Shipment"]["InquiryNumber"]["Value"].string else {
+      trackingNumberRequestCount -= 1
+      
+      if trackingNumberRequestCount == 0 {
+        for trackingNumberRequest in trackingNumberRequests {
+          let parcel = Parcel(trackingNumber: trackingNumberRequest, isTrackingNumberValid: false)
+          
+          if let tableView = tableView {
+            dispatch_async(dispatch_get_main_queue()) {
+              [unowned self] in
+              self.addItem(parcel, toTableView: tableView)
+            }
+          }
+        }
+        
+        trackingNumberRequests.removeAll()
+      }
+      
+      return
+    }
+    
+    
+    var matchTrackingNumber = false
+    
+    for (index, trackingNumberRequest) in trackingNumberRequests.enumerate() {
+      if trackingNumber == trackingNumberRequest {
+        matchTrackingNumber = true
+        trackingNumberRequests.removeAtIndex(index)
+      }
+    }
+    
+    if matchTrackingNumber {
+      if let parcel = extractParcelFromJSON(json) {
+        
+        if let tableView = tableView {
+          dispatch_async(dispatch_get_main_queue()) {
+            [unowned self] in
+            self.addItem(parcel, toTableView: tableView)
+          }
+        }
+      }
+    }
+    
+    
   }
   
   // MARK: Lifecycle
-  init() {
+  init(upsService: UPSService) {
+    self.upsService = upsService
+    
     super.init(dataObject: ParcelList())
   }
   
@@ -29,66 +87,17 @@ class ParcelDataSource: DataSource {
   private var trackingNumberRequests = [String]()
   private var trackingNumberRequestCount: Int = 0
   
-  private lazy var upsService: UPSService = {
-    let service = UPSService()
-    service.delegate = self
-    return service
-  }()
+  private var upsService: UPSService
   
   override var conditionForAdding: Bool {
     return true
   }
 }
 
-extension ParcelDataSource: UPSServiceDelegate {
-  @objc func didReceiveData(data: AnyObject) {
-    
-    if let json = JSON(rawValue: data),
-      let trackingNumber = json["TrackResponse"]["Shipment"]["InquiryNumber"]["Value"].string {
-      print("Did receive data: \(json)")
-      var matchTrackingNumber = false
-      
-      for (index, trackingNumberRequest) in trackingNumberRequests.enumerate() {
-        if trackingNumber == trackingNumberRequest {
-          matchTrackingNumber = true
-          trackingNumberRequests.removeAtIndex(index)
-        }
-      }
-      
-      if matchTrackingNumber {
-        if let parcel = extractParcelFromJSON(json) {
-          print(parcel)
-          
-          if let tableView = tableView {
-            dispatch_async(dispatch_get_main_queue()) {
-              [unowned self] in
-              self.addItem(parcel, toTableView: tableView)
-            }
-          }
-        }
-      }
-    } else {
-      print("Failed to convert raw data to JSON: \(data)")
-    }
-    
-    trackingNumberRequestCount -= 1
-    
-    if trackingNumberRequestCount == 0 {
-      for trackingNumberRequest in trackingNumberRequests {
-        let parcel = Parcel(trackingNumber: trackingNumberRequest, isTrackingNumberValid: false)
-        
-        if let tableView = tableView {
-          dispatch_async(dispatch_get_main_queue()) {
-            [unowned self] in
-            self.addItem(parcel, toTableView: tableView)
-          }        }
-      }
-      
-      trackingNumberRequests.removeAll()
-    }    
-  }
+// MARK: - Private functions
+extension ParcelDataSource {
   
-  private func extractActivityAddressesFromJSON(json: JSON) -> [Address]? {
+  func extractActivityAddressesFromJSON(json: JSON) -> [Address]? {
     
     guard let activities = json["TrackResponse"]["Shipment"]["Package"]["Activity"].array else {
       return nil
@@ -135,7 +144,7 @@ extension ParcelDataSource: UPSServiceDelegate {
     return activityAddresses
   }
   
-  private func extractParcelFromJSON(json: JSON) -> Parcel? {
+  func extractParcelFromJSON(json: JSON) -> Parcel? {
     
     if let trackingNumber = json["TrackResponse"]["Shipment"]["InquiryNumber"]["Value"].string,
       let shipmentAddresses = json["TrackResponse"]["Shipment"]["ShipmentAddress"].array {
@@ -185,6 +194,7 @@ extension ParcelDataSource: UPSServiceDelegate {
   }
 }
 
+// MARK: - UITableView
 extension ParcelDataSource {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

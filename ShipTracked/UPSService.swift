@@ -8,23 +8,24 @@
 
 import Foundation
 
-@objc protocol UPSServiceDelegate: class {
-  optional func didCompleteWithError(error: NSError)
-  func didReceiveData(data: AnyObject)
-}
-
 class UPSService {
   
-  // MARK: Functions
-  func requestParcelInfoWithTrackingNumber(trackingNumber: String) {
+  func requestParcelWithTrackingNumber(trackingNumber: String, completionHandler: DataTaskResult) {
     
-    sendDataTaskWithTrackingNumber(trackingNumber)
-    
+    if let body = createRequestBodyJSONWithTrackingNumber(trackingNumber),
+      let request = createNSURLRequestWithBody(body)  {
+      
+      let task = session.dataTaskWithRequest(request, completionHandler: completionHandler)
+      task.resume()
+    }
+  }
+  
+  // MARK: Inits
+  init(session: URLSessionProtocol = NSURLSession.sharedSession()) {
+    self.session = session
   }
   
   // MARK: Properties
-  weak var delegate: UPSServiceDelegate?
-  
   // JSON Production Endpoint
   private let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
   
@@ -36,53 +37,11 @@ class UPSService {
   private let accessLicenseNumber = "DD0BE12EB3B46D36"
   private let requestOption = "7"
   
-  private let session = NSURLSession.sharedSession()
+  private let session: URLSessionProtocol
 }
 
 // MARK: - Private Functions
 private extension UPSService {
-  
-  func sendDataTaskWithTrackingNumber(trackingNumber: String) {
-    guard let body = createRequestBodyJSONWithTrackingNumber(trackingNumber),
-      let request = createNSURLRequestWithBody(body) else {
-        return
-    }
-    
-    sendDataTaskWithRequest(request)
-    
-  }
-  
-  func sendDataTaskWithRequest(request: NSURLRequest) {
-    let task = session.dataTaskWithRequest(request) {
-      data, response, error in
-      
-      let response = response as! NSHTTPURLResponse
-      let statusCodeDescription = NSHTTPURLResponse.localizedStringForStatusCode(response.statusCode)
-      
-      switch response.statusCode {
-      case 200...300:
-        break
-      default:
-        print("status code: \(response.statusCode), description: \(statusCodeDescription)")
-        return
-      }
-      
-      if let error = error {
-        self.delegate?.didCompleteWithError?(error)
-        return
-      }
-      
-      do {
-        let result = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-        
-        self.delegate?.didReceiveData(result)
-      } catch {
-        print(error)
-      }
-    }
-    
-    task.resume()
-  }
   
   func createNSURLRequestWithBody(body: NSData) -> NSURLRequest? {
     guard let url = NSURL(string: endpointURLTesting) else {

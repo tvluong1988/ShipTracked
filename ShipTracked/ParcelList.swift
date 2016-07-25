@@ -20,8 +20,10 @@ struct ParcelList {
   
   // MARK: Properties
   let parcels: [Parcel]
+  
 }
 
+// MARK: - Private functions
 private extension ParcelList {
   func insertParcel(parcel: Parcel, atIndex index: Int) -> ParcelList {
     var mutableParcels = parcels
@@ -31,15 +33,8 @@ private extension ParcelList {
   }
 }
 
+// MARK: - DataList
 extension ParcelList: DataList {
-  
-  var numberOfItems: Int {
-    return parcels.count
-  }
-  
-  subscript(index: Int) -> Item {
-    return parcels[index]
-  }
   
   func addNewItem(item: Item, atIndex index: Int) -> ParcelList {
     let item = item as! Parcel
@@ -55,6 +50,24 @@ extension ParcelList: DataList {
   
   func moveItemFromIndex(fromIndex: Int, toIndex: Int) -> ParcelList {
     return deleteItemAtIndex(fromIndex).insertParcel(parcels[fromIndex], atIndex: toIndex)
+  }
+  
+  var count: Int {
+    return parcels.count
+  }
+  
+  subscript(index: Int) -> Item {
+    return parcels[index]
+  }
+  
+  var first: Item? {
+    var parcel: Parcel?
+    
+    if parcels.count > 0 {
+      parcel = parcels[0]
+    }
+    
+    return parcel
   }
 }
 

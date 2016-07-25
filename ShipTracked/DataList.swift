@@ -16,7 +16,8 @@ protocol DataList {
   func moveItemFromIndex(fromIndex: Int, toIndex: Int) -> Self
   
   // MARK: Properties
-  var numberOfItems: Int {get}
+  var count: Int {get}
+  var first: Item? {get}
   subscript(index: Int) -> Item { get }
   
 }
@@ -28,6 +29,4 @@ extension DataList {
   
 }
 
-protocol Item {
-  
-}
+protocol Item {}

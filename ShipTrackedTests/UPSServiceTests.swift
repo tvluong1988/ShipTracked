@@ -6,93 +6,102 @@
 //  Copyright © 2016 Thinh Luong. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
 @testable import ShipTracked
 
-class UPSServiceTests: XCTestCase {
+class UPSServiceSpec: QuickSpec {
   
-  // MARK: Tests
-  //  func testRequestParcelInfoWithValidTrackingNumber() {
-  //    let expectation = expectationWithDescription("upsService calls the delegate.")
-  //    spyDelegate.asyncExpectation = expectation
-  //    
-  //    upsService.requestParcelInfoWithTrackingNumber(validTrackingNumberForTesting)
-  //    
-  //    waitForExpectationsWithTimeout(5) {
-  //      error in
-  //      if let error = error {
-  //        XCTFail("waitForExpectationWithTimeout errored: \(error)")
-  //      }
-  //      
-  //      if self.spyDelegate.asyncResult == nil {
-  //        XCTFail("Expected delegate to be called")
-  //        return
-  //      }
-  //      
-  //    }
-  //    
-  //  }
-  //  
-  //  func testRequestParcelInfoWithInvalidTrackingNumber() {
-  //    let expectation = expectationWithDescription("upsService calls the delegate.")
-  //    spyDelegate.asyncExpectation = expectation
-  //    
-  //    upsService.requestParcelInfoWithTrackingNumber(invalidTrackingNumberForTesting)
-  //    
-  //    waitForExpectationsWithTimeout(5) {
-  //      error in
-  //      if let error = error {
-  //        XCTFail("waitForExpectationWithTimeout errored: \(error)")
-  //      }
-  //      
-  //      if self.spyDelegate.asyncResult == nil {
-  //        XCTFail("Expected delegate to be called")
-  //        return
-  //      }
-  //      
-  //    }
-  //    
-  //  }
-  
-  // MARK: Lifecycle
-  override func setUp() {
-    super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
-  
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    super.tearDown()
-  }
-  
-  // MARK: Properties
-  
-  lazy var upsService: UPSService = {
-    let service = UPSService()
-    service.delegate = self.spyDelegate
-    return service
-  }()
-  
-  var spyDelegate = SpyUPSServiceDelegate()
-  
-  private let validTrackingNumberForTesting = "1Z202Y36A898759591"
-  private let invalidTrackingNumberForTesting = "0000"
-  
-}
-
-class SpyUPSServiceDelegate: UPSServiceDelegate {
-  var asyncResult: AnyObject?
-  
-  var asyncExpectation: XCTestExpectation?
-  
-  @objc func didReceiveData(data: AnyObject) {
-    guard let expectation = asyncExpectation else {
-      XCTFail("SpyUPSServiceDelegate was not setup correctly. Missing XCTestExpectation reference.")
-      return
-    }
+  override func spec() {
     
-    asyncResult = data
-    expectation.fulfill()
+    // MARK: Properties
+    var upsService: UPSService!
+    let mockURLSession = MockURLSession()
+    
+    // JSON Production Endpoint
+    let endpointURLProduction = "https://onlinetools.ups.com/json/Track"
+    
+    // JSON Testing Endpoint
+    let endpointURLTesting = "https://wwwcie.ups.com/json/Track"
+    
+    let trackingNumber = "1Z202Y36A898759591"
+    
+    // MARK: Tests
+    describe("given a UPSService") {
+      
+      beforeEach() {
+        upsService = UPSService(session: mockURLSession)
+      }
+      
+      afterEach() {
+        upsService = nil
+      }
+      
+      context("when requesting parcel info with a tracking number") {
+        it("then it should send a HTTP Post request at the correct UPS endpoint") {
+          upsService.requestParcelWithTrackingNumber(trackingNumber) {
+            _,_,_ in
+            return
+          }
+          
+          expect(mockURLSession.lastRequest?.HTTPMethod).to(contain("POST"))
+          expect(mockURLSession.lastRequest?.URL?.absoluteString).to(contain(endpointURLTesting))
+          expect(mockURLSession.nextDataTask.resumeWasCalled).to(beTrue())
+          
+        }
+        
+        context("when response fails with mock error") {
+          it("then it should receive mock error") {
+            let expectedError = NSError(domain: "fake error", code: 1, userInfo: nil)
+            
+            mockURLSession.nextError = expectedError
+            
+            var actualError: NSError?
+            upsService.requestParcelWithTrackingNumber(trackingNumber) {
+              _,_,error in
+              actualError = error
+            }
+            
+            expect(actualError).toEventually(be(expectedError))
+          }
+        }
+        
+        context("when response succeeds with mock received data") {
+          it("then it should receive mock data") {
+            
+            let fakeJSON = ["fake_key": "fake_value"]
+            
+            let expectedData = try! NSJSONSerialization.dataWithJSONObject(fakeJSON, options: .PrettyPrinted)
+            
+            mockURLSession.nextData = expectedData
+            
+            var actualData: NSData?
+            upsService.requestParcelWithTrackingNumber(trackingNumber) {data,_,_ in
+              actualData = data
+            }
+            
+            expect(actualData).toEventually(be(expectedData))
+          }
+        }
+        
+        context("when response returns with mock response status") {
+          it("then it should receive mock response status") {
+            let expectedResponse = NSHTTPURLResponse(URL: NSURL(string: "fake_url")!, statusCode: 200, HTTPVersion: nil, headerFields: nil)
+            
+            mockURLSession.nextResponse = expectedResponse
+            
+            var actualResponse: NSHTTPURLResponse?
+            upsService.requestParcelWithTrackingNumber(trackingNumber) {
+              _,response,_ in
+              actualResponse = response as? NSHTTPURLResponse
+            }
+            
+            expect(actualResponse).to(be(expectedResponse))
+            
+          }
+        }
+      }
+    }
   }
 }
 

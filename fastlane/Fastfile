@@ -12,7 +12,8 @@ desc "Run tests"
 lane :test do
 scan(
 scheme: "ShipTracked",
-project: "ShipTracked.xcodeproj",
+workspace: "ShipTracked.xcworkspace",
+#project: "ShipTracked.xcodeproj",
 clean: true,
 code_coverage: true,
 skip_slack: true,
@@ -23,7 +24,8 @@ end
 desc "Calculate test code coverage score. Need to run test beforehand."
 lane :report_test_coverage do
 xcov(
-project: "ShipTracked.xcodeproj",
+workspace: "ShipTracked.xcworkspace",
+#project: "ShipTracked.xcodeproj",
 scheme: "ShipTracked",
 output_directory: "xcov_output"
 )
