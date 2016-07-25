@@ -19,70 +19,15 @@ class ParcelDataSource: DataSource {
     upsService.requestParcelWithTrackingNumber(trackingNumber, completionHandler: dataTaskResultHandler)
   }
   
-  func dataTaskResultHandler(data: NSData?, response: NSURLResponse?, error: NSError?) -> Void {
-    
-    
-    guard let data = data else {
-      return
-    }
-    
-    let json = JSON(data: data)
-    
-    guard let trackingNumber = json["TrackResponse"]["Shipment"]["InquiryNumber"]["Value"].string else {
-      trackingNumberRequestCount -= 1
-      
-      if trackingNumberRequestCount == 0 {
-        for trackingNumberRequest in trackingNumberRequests {
-          let parcel = Parcel(trackingNumber: trackingNumberRequest, isTrackingNumberValid: false)
-          
-          if let tableView = tableView {
-            dispatch_async(dispatch_get_main_queue()) {
-              [unowned self] in
-              self.addItem(parcel, toTableView: tableView)
-            }
-          }
-        }
-        
-        trackingNumberRequests.removeAll()
-      }
-      
-      return
-    }
-    
-    
-    var matchTrackingNumber = false
-    
-    for (index, trackingNumberRequest) in trackingNumberRequests.enumerate() {
-      if trackingNumber == trackingNumberRequest {
-        matchTrackingNumber = true
-        trackingNumberRequests.removeAtIndex(index)
-      }
-    }
-    
-    if matchTrackingNumber {
-      if let parcel = extractParcelFromJSON(json) {
-        
-        if let tableView = tableView {
-          dispatch_async(dispatch_get_main_queue()) {
-            [unowned self] in
-            self.addItem(parcel, toTableView: tableView)
-          }
-        }
-      }
-    }
-    
-    
-  }
-  
   // MARK: Lifecycle
-  init(upsService: UPSService) {
+  init(upsService: UPSService = UPSService()) {
     self.upsService = upsService
     
     super.init(dataObject: ParcelList())
   }
   
   // MARK: Properties
-  weak var tableView: UITableView?
+  weak var tableView: UITableView!
   
   private var trackingNumberRequests = [String]()
   private var trackingNumberRequestCount: Int = 0
@@ -95,7 +40,57 @@ class ParcelDataSource: DataSource {
 }
 
 // MARK: - Private functions
-extension ParcelDataSource {
+private extension ParcelDataSource {
+  func dataTaskResultHandler(data: NSData?, response: NSURLResponse?, error: NSError?) -> Void {
+    
+    guard let data = data else {
+      return
+    }
+    
+    let json = JSON(data: data)
+    
+    guard let trackingNumber = json["TrackResponse"]["Shipment"]["InquiryNumber"]["Value"].string else {
+      trackingNumberRequestCount -= 1
+      
+      if trackingNumberRequestCount == 0 {
+        clearTrackingNumberRequests()
+      }
+      
+      return
+    }
+    
+    var matchTrackingNumber = false
+    
+    for (index, trackingNumberRequest) in trackingNumberRequests.enumerate() {
+      if trackingNumber == trackingNumberRequest {
+        matchTrackingNumber = true
+        trackingNumberRequests.removeAtIndex(index)
+      }
+    }
+    
+    if matchTrackingNumber {
+      if let parcel = extractParcelFromJSON(json) {
+        addParcel(parcel, toTableView: tableView)
+      }
+    }
+  }
+  
+  func addParcel(parcel: Parcel, toTableView tableView: UITableView) {
+    dispatch_async(dispatch_get_main_queue()) {
+      [unowned self] in
+      self.addItem(parcel, toTableView: tableView)
+    }
+  }
+  
+  func clearTrackingNumberRequests() {
+    for trackingNumberRequest in trackingNumberRequests {
+      let parcel = Parcel(trackingNumber: trackingNumberRequest, isTrackingNumberValid: false)
+      addParcel(parcel, toTableView: tableView)
+    }
+    
+    trackingNumberRequests.removeAll()
+    
+  }
   
   func extractActivityAddressesFromJSON(json: JSON) -> [Address]? {
     

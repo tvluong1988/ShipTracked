@@ -27,15 +27,3 @@ class MockURLSession: URLSessionProtocol {
   var nextResponse: NSHTTPURLResponse?
   private (set) var lastRequest: NSURLRequest?
 }
-
-
-class MockURLSessionDataTask: URLSessionDataTaskProtocol {
-  
-  // MARK: Functions
-  func resume() {
-    resumeWasCalled = true
-  }
-  
-  // MARK: Properties
-  private (set) var resumeWasCalled = false
-}

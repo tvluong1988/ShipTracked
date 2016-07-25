@@ -23,14 +23,32 @@ class ParcelTableViewController: UITableViewController {
     showTrackingNumberInputAlert()
   }
   
-  // MARK: Functions
-  private func requestParcelWithTrackingNumber(trackingNumber: String) {
+  // MARK: Lifecycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    tableView.dataSource = dataSource
+    dataSource.tableView = tableView
+    
+    navigationItem.leftBarButtonItem = editButtonItem()
+    
+    title = "Parcel List"
+    
+  }
+  
+  // MARK: Properties
+  private var dataSource = ParcelDataSource()
+}
+
+// MARK: - Private functions
+private extension ParcelTableViewController {
+  func requestParcelWithTrackingNumber(trackingNumber: String) {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
       [unowned self] in
       self.dataSource.addParcelWithTrackingNumber(trackingNumber)
     }
   }
-  private func showTrackingNumberInputAlert() {
+  func showTrackingNumberInputAlert() {
     let alertController = UIAlertController(title: "New Parcel", message: "Please enter your tracking number", preferredStyle: .Alert)
     
     alertController.addTextFieldWithConfigurationHandler {
@@ -48,31 +66,7 @@ class ParcelTableViewController: UITableViewController {
     alertController.addAction(okAction)
     presentViewController(alertController, animated: true, completion: nil)
   }
-  
-  // MARK: Lifecycle
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    tableView.dataSource = dataSource
-    dataSource.tableView = tableView
-    
-    navigationItem.leftBarButtonItem = editButtonItem()
-    
-    title = "Parcel List"
-    
-    requestParcelWithTrackingNumber(validTrackingNumberForTesting)
-  }
-  
-  // MARK: Properties
-  lazy private var dataSource: ParcelDataSource = {
-    let upsService = UPSService()
-    return ParcelDataSource(upsService: upsService)
-  }()
-  
-  let validTrackingNumberForTesting = "1Z202Y36A898759591"
-  let invalidTrackingNumberForTesting = "0000"
 }
-
 
 
 
