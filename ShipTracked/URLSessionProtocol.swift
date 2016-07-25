@@ -16,7 +16,6 @@ typealias DataTaskResult = (NSData?, NSURLResponse?, NSError?) -> Void
 protocol URLSessionProtocol {
   
   func dataTaskWithRequest(request: NSURLRequest, completionHandler: DataTaskResult) -> URLSessionDataTaskProtocol
-  
 }
 
 // MARK: - URLSessionProtocol
@@ -28,11 +27,3 @@ extension NSURLSession: URLSessionProtocol {
   
 }
 
-/**
- *  URLSessionDataTaskProtocol for stubbing NSURLSessionDataTaskProtocol
- */
-protocol URLSessionDataTaskProtocol {
-  func resume()
-}
-
-extension NSURLSessionDataTask: URLSessionDataTaskProtocol {}

@@ -13,7 +13,6 @@ class ParcelDetailViewController: UIViewController {
   // MARK: Outlets
   @IBOutlet weak var trackingNumberLabel: UILabel!
   
-  
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()

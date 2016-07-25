@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1ED4B2F961E9F485606466A8 /* Pods_ShipTracked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA967ED4DCEE37BC5C9D40A /* Pods_ShipTracked.framework */; };
 		5B294998A4D6646063EEDA51 /* Pods_ShipTrackedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */; };
+		8B033E071D45A914009312F6 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */; };
+		8B033E091D45A962009312F6 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */; };
 		8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */; };
 		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
@@ -83,6 +85,8 @@
 		2C3183F074C96F47E9FE6175 /* Pods-ShipTrackedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipTrackedTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShipTrackedTests/Pods-ShipTrackedTests.release.xcconfig"; sourceTree = "<group>"; };
 		636F96F69F017D51AB47BC85 /* Pods-ShipTracked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipTracked.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShipTracked/Pods-ShipTracked.debug.xcconfig"; sourceTree = "<group>"; };
 		694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShipTrackedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 		8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDistribution.p12.enc; sourceTree = "<group>"; };
 		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 				8BAE47121CEE3CF500574208 /* Library */,
 				8BDACC261CF4FF23005D6E9F /* Plist.swift */,
 				8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */,
+				8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */,
 			);
 			path = ShipTracked;
 			sourceTree = "<group>";
@@ -292,8 +297,9 @@
 				8B429FBF1CEA631500B81C1B /* ParcelTests.swift */,
 				8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */,
 				8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */,
-				8B429FC11CEA631500B81C1B /* Info.plist */,
 				8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */,
+				8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */,
+				8B429FC11CEA631500B81C1B /* Info.plist */,
 			);
 			path = ShipTrackedTests;
 			sourceTree = "<group>";
@@ -656,6 +662,7 @@
 				8BF307471D330FE6004B710E /* README.md in Sources */,
 				8B21ECC31CEAA30000EAA1D8 /* ParcelDataSource.swift in Sources */,
 				8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */,
+				8B033E091D45A962009312F6 /* URLSessionDataTaskProtocol.swift in Sources */,
 				8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */,
 				8B5CE3D21D443755003E00F4 /* URLSessionProtocol.swift in Sources */,
 				8B3711421CF228A7009F1B9A /* SourceType.swift in Sources */,
@@ -671,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */,
+				8B033E071D45A914009312F6 /* MockURLSessionDataTask.swift in Sources */,
 				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */,
 				8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */,
 				8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */,
