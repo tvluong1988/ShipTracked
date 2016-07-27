@@ -11,6 +11,7 @@
 		5B294998A4D6646063EEDA51 /* Pods_ShipTrackedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */; };
 		8B033E071D45A914009312F6 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */; };
 		8B033E091D45A962009312F6 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */; };
+		8B1C6B141D48628B00460C3D /* get_certs_from_s3.rb in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C6B131D48628B00460C3D /* get_certs_from_s3.rb */; };
 		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
 		8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */; };
@@ -85,6 +86,7 @@
 		694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShipTrackedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		8B1C6B131D48628B00460C3D /* get_certs_from_s3.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = get_certs_from_s3.rb; path = travis/get_certs_from_s3.rb; sourceTree = "<group>"; };
 		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
 		8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceTests.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 			children = (
 				8BF307481D3310B5004B710E /* script.sh */,
 				8BF3074A1D3310E6004B710E /* after_success_script.sh */,
+				8B1C6B131D48628B00460C3D /* get_certs_from_s3.rb */,
 			);
 			name = travis;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				8BF3076D1D3313DE004B710E /* privacy_url.txt in Resources */,
 				8B429FB21CEA631500B81C1B /* Assets.xcassets in Resources */,
 				8BF3076A1D3313DE004B710E /* keywords.txt in Resources */,
+				8B1C6B141D48628B00460C3D /* get_certs_from_s3.rb in Resources */,
 				8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */,
 				8BF307451D330FC6004B710E /* LICENSE in Resources */,
 				8BF3076B1D3313DE004B710E /* marketing_url.txt in Resources */,
