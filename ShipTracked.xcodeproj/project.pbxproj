@@ -11,7 +11,6 @@
 		5B294998A4D6646063EEDA51 /* Pods_ShipTrackedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */; };
 		8B033E071D45A914009312F6 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */; };
 		8B033E091D45A962009312F6 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */; };
-		8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */; };
 		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
 		8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */; };
@@ -34,7 +33,6 @@
 		8B5CE3D21D443755003E00F4 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */; };
 		8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */; };
 		8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */; };
-		8BB095CD1D4075DC00DB03F0 /* iosDeveloper.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */; };
 		8BDACC251CF4FDD2005D6E9F /* AddressLocationData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */; };
 		8BDACC271CF4FF23005D6E9F /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDACC261CF4FF23005D6E9F /* Plist.swift */; };
 		8BF307451D330FC6004B710E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8BF307441D330FC6004B710E /* LICENSE */; };
@@ -87,7 +85,6 @@
 		694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShipTrackedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
-		8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDistribution.p12.enc; sourceTree = "<group>"; };
 		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
 		8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceTests.swift; sourceTree = "<group>"; };
@@ -116,7 +113,6 @@
 		8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSourceTests.swift; sourceTree = "<group>"; };
-		8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDeveloper.p12.enc; sourceTree = "<group>"; };
 		8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AddressLocationData.plist; sourceTree = "<group>"; };
 		8BDACC261CF4FF23005D6E9F /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		8BF307441D330FC6004B710E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -331,8 +327,6 @@
 		8BB095CA1D4075DC00DB03F0 /* cert */ = {
 			isa = PBXGroup;
 			children = (
-				8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */,
-				8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */,
 			);
 			path = cert;
 			sourceTree = "<group>";
@@ -524,13 +518,11 @@
 				8BF3076E1D3313DE004B710E /* release_notes.txt in Resources */,
 				8BF307741D3313DE004B710E /* secondary_first_sub_category.txt in Resources */,
 				8BF307731D3313DE004B710E /* secondary_category.txt in Resources */,
-				8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */,
 				8BF307761D3313DE004B710E /* README.txt in Resources */,
 				8BF307711D3313DE004B710E /* primary_first_sub_category.txt in Resources */,
 				8BF3076D1D3313DE004B710E /* privacy_url.txt in Resources */,
 				8B429FB21CEA631500B81C1B /* Assets.xcassets in Resources */,
 				8BF3076A1D3313DE004B710E /* keywords.txt in Resources */,
-				8BB095CD1D4075DC00DB03F0 /* iosDeveloper.p12.enc in Resources */,
 				8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */,
 				8BF307451D330FC6004B710E /* LICENSE in Resources */,
 				8BF3076B1D3313DE004B710E /* marketing_url.txt in Resources */,
