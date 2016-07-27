@@ -11,11 +11,11 @@ on_failure: never
 before_install:
 - gem install xcov --no-ri --no-rdoc --no-document
 - gem update fastlane --no-ri --no-rdoc --no-document
+- pip install --user awscli
+- export PATH=$PATH:$HOME/.local/bin
 
 
 before_script:
-- pip install --user awscli
-- export PATH=$PATH:$HOME/.local/bin
 - aws s3 cp s3://bucket-ios-certs/iosDeveloper.p12.enc fastlane/cert/
 - aws s3 cp s3://bucket-ios-certs/iosDistribution.p12.enc fastlane/cert/
 - openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in fastlane/cert/iosDeveloper.p12.enc -d -a -out fastlane/cert/iosDeveloper.p12
