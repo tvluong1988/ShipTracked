@@ -16,8 +16,8 @@ before_install:
 
 before_script:
 - ruby travis/get_certs_from_s3.rb
-- openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in ./iosDeveloper.p12.enc -d -a -out fastlane/cert/iosDeveloper.p12
-- openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in ./iosDistribution.p12.enc -d -a -out fastlane/cert/iosDistribution.p12
+- openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in ./iosDeveloper.p12.enc -d -a -out ./iosDeveloper.p12
+- openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in ./iosDistribution.p12.enc -d -a -out ./iosDistribution.p12
 
 
 script: travis/script.sh
