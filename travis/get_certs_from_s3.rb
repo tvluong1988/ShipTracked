@@ -1,6 +1,6 @@
 require 'aws-sdk'
 
-s3 = Aws::S3::Resource.new(region: $AWS_DEFAULT_REGION)
+s3 = Aws::S3::Resource.new(region: 'us-west-2')
 
 iosDeveloper = s3.bucket('bucket-ios-certs').object('iosDeveloper.p12.enc')
 iosDeveloper.get(response_target: './iosDeveloper.p12.enc')
