@@ -326,13 +326,6 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
-		8BB095CA1D4075DC00DB03F0 /* cert */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = cert;
-			sourceTree = "<group>";
-		};
 		8BF3074E1D331111004B710E /* travis */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,7 +339,6 @@
 		8BF3074F1D3313DD004B710E /* fastlane */ = {
 			isa = PBXGroup;
 			children = (
-				8BB095CA1D4075DC00DB03F0 /* cert */,
 				8BF307501D3313DD004B710E /* Appfile */,
 				8BF307511D3313DD004B710E /* Deliverfile */,
 				8BF307521D3313DD004B710E /* Fastfile */,
