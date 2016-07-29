@@ -23,6 +23,12 @@
 		8B3711461CF228B4009F1B9A /* DataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711451CF228B4009F1B9A /* DataList.swift */; };
 		8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711471CF2383A009F1B9A /* ParcelCell.swift */; };
 		8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */; };
+		8B4241F01D4AF67800D76253 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241EF1D4AF67800D76253 /* TypeAlias.swift */; };
+		8B4241F21D4AF6B400D76253 /* SeededURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F11D4AF6B400D76253 /* SeededURLSession.swift */; };
+		8B4241F41D4AF79B00D76253 /* SeededDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F31D4AF79B00D76253 /* SeededDataTask.swift */; };
+		8B4241F61D4AF9D000D76253 /* NetworkSessionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F51D4AF9D000D76253 /* NetworkSessionConfig.swift */; };
+		8B4241F91D4AFE5700D76253 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F81D4AFE5700D76253 /* MockData.swift */; };
+		8B4241FA1D4AFFF100D76253 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F81D4AFE5700D76253 /* MockData.swift */; };
 		8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA71CEA631500B81C1B /* AppDelegate.swift */; };
 		8B429FAA1CEA631500B81C1B /* ParcelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA91CEA631500B81C1B /* ParcelDetailViewController.swift */; };
 		8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FAB1CEA631500B81C1B /* Main.storyboard */; };
@@ -98,6 +104,11 @@
 		8B3711451CF228B4009F1B9A /* DataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataList.swift; sourceTree = "<group>"; };
 		8B3711471CF2383A009F1B9A /* ParcelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelCell.swift; sourceTree = "<group>"; };
 		8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelTableViewController.swift; sourceTree = "<group>"; };
+		8B4241EF1D4AF67800D76253 /* TypeAlias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
+		8B4241F11D4AF6B400D76253 /* SeededURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeededURLSession.swift; sourceTree = "<group>"; };
+		8B4241F31D4AF79B00D76253 /* SeededDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeededDataTask.swift; sourceTree = "<group>"; };
+		8B4241F51D4AF9D000D76253 /* NetworkSessionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSessionConfig.swift; sourceTree = "<group>"; };
+		8B4241F81D4AFE5700D76253 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		8B429FA41CEA631500B81C1B /* ShipTracked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShipTracked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B429FA71CEA631500B81C1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B429FA91CEA631500B81C1B /* ParcelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailViewController.swift; sourceTree = "<group>"; };
@@ -235,13 +246,25 @@
 		8B37114E1CF23B5B009F1B9A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				8B3711431CF228AD009F1B9A /* DataSource.swift */,
-				8B3711451CF228B4009F1B9A /* DataList.swift */,
 				8B3711411CF228A7009F1B9A /* SourceType.swift */,
-				8B37113F1CF22778009F1B9A /* ParcelList.swift */,
+				8B3711431CF228AD009F1B9A /* DataSource.swift */,
 				8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */,
+				8B37113F1CF22778009F1B9A /* ParcelList.swift */,
+				8B3711451CF228B4009F1B9A /* DataList.swift */,
 			);
 			name = DataSource;
+			sourceTree = "<group>";
+		};
+		8B4241F71D4AFD5C00D76253 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */,
+				8B4241F11D4AF6B400D76253 /* SeededURLSession.swift */,
+				8B4241F31D4AF79B00D76253 /* SeededDataTask.swift */,
+				8B4241F51D4AF9D000D76253 /* NetworkSessionConfig.swift */,
+				8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		8B429F9B1CEA631500B81C1B = {
@@ -275,6 +298,7 @@
 		8B429FA61CEA631500B81C1B /* ShipTracked */ = {
 			isa = PBXGroup;
 			children = (
+				8B4241EF1D4AF67800D76253 /* TypeAlias.swift */,
 				8B5CE3D31D4437B6003E00F4 /* Service */,
 				8B21ECC61CEAB56B00EAA1D8 /* Support */,
 				8B37114C1CF23B47009F1B9A /* ViewController */,
@@ -283,8 +307,7 @@
 				8B37114E1CF23B5B009F1B9A /* DataSource */,
 				8BAE47121CEE3CF500574208 /* Library */,
 				8BDACC261CF4FF23005D6E9F /* Plist.swift */,
-				8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */,
-				8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */,
+				8B4241F71D4AFD5C00D76253 /* Network */,
 			);
 			path = ShipTracked;
 			sourceTree = "<group>";
@@ -298,6 +321,7 @@
 				8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */,
 				8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */,
 				8B429FC11CEA631500B81C1B /* Info.plist */,
+				8B4241F81D4AFE5700D76253 /* MockData.swift */,
 			);
 			path = ShipTrackedTests;
 			sourceTree = "<group>";
@@ -643,6 +667,7 @@
 			files = (
 				8BDACC271CF4FF23005D6E9F /* Plist.swift in Sources */,
 				8B429FAA1CEA631500B81C1B /* ParcelDetailViewController.swift in Sources */,
+				8B4241F41D4AF79B00D76253 /* SeededDataTask.swift in Sources */,
 				8B3711461CF228B4009F1B9A /* DataList.swift in Sources */,
 				8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */,
 				8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */,
@@ -653,6 +678,9 @@
 				8B033E091D45A962009312F6 /* URLSessionDataTaskProtocol.swift in Sources */,
 				8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */,
 				8B5CE3D21D443755003E00F4 /* URLSessionProtocol.swift in Sources */,
+				8B4241F21D4AF6B400D76253 /* SeededURLSession.swift in Sources */,
+				8B4241F01D4AF67800D76253 /* TypeAlias.swift in Sources */,
+				8B4241F61D4AF9D000D76253 /* NetworkSessionConfig.swift in Sources */,
 				8B3711421CF228A7009F1B9A /* SourceType.swift in Sources */,
 				8B21ECC81CEAC05C00EAA1D8 /* Address.swift in Sources */,
 				8B3711401CF22778009F1B9A /* ParcelList.swift in Sources */,
@@ -666,6 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */,
+				8B4241F91D4AFE5700D76253 /* MockData.swift in Sources */,
 				8B033E071D45A914009312F6 /* MockURLSessionDataTask.swift in Sources */,
 				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */,
 				8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */,
@@ -678,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B429FCB1CEA631500B81C1B /* ShipTrackedUITests.swift in Sources */,
+				8B4241FA1D4AFFF100D76253 /* MockData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

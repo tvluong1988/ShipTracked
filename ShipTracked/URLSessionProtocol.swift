@@ -8,7 +8,6 @@
 
 import Foundation
 
-typealias DataTaskResult = (NSData?, NSURLResponse?, NSError?) -> Void
 
 /**
  *  URLSessionProtocol for stubbing NSURLSession

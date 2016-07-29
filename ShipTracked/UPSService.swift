@@ -21,7 +21,7 @@ class UPSService {
   }
   
   // MARK: Inits
-  init(session: URLSessionProtocol = NSURLSession.sharedSession()) {
+  init(session: URLSessionProtocol = NetworkSessionConfig.urlSession) {
     self.session = session
   }
   

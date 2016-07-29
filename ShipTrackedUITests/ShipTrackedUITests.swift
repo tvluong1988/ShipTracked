@@ -9,28 +9,51 @@
 import XCTest
 
 class ShipTrackedUITests: XCTestCase {
-        
-    override func setUp() {
-        super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
+  
+  // MARK: Tests
+  func testUINetworkStub() {
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    let app = XCUIApplication()
+    app.navigationBars["Parcel List"].buttons["Add"].tap()
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    let collectionViewsQuery = app.alerts["New Parcel"].collectionViews
+    collectionViewsQuery.textFields["tracking number here"].tap()
+    collectionViewsQuery.textFields["tracking number here"].typeText(trackingNumber)
+    collectionViewsQuery.buttons["OK"].tap()
     
+    XCTAssert(app.staticTexts[trackingNumber].exists)
+    XCTAssert(app.staticTexts["false"].exists)
+  }
+  
+  // MARK: Lifecycle
+  override func setUp() {
+    super.setUp()
+    
+    continueAfterFailure = false
+    
+    app.launchArguments.append(UITestingEnvironment)
+    app.launchEnvironment += [endpointURLTesting: "Failed"]
+    app.launch()
+    
+    sleep(1)
+  }
+  
+  override func tearDown() {
+    super.tearDown()
+  }
+  
+  // MARK: Properties
+  let trackingNumber = "1Z202Y36A898759591"
+  // JSON Testing Endpoint
+  let endpointURLTesting = "https://wwwcie.ups.com/json/Track"
+  
+  let app = XCUIApplication()
+  let UITestingEnvironment = "UI-TESTING"
 }
+
+func +=<K, V> (inout left: [K : V], right: [K : V]) {
+  for (k, v) in right {
+    left[k] = v
+  }
+}
+
