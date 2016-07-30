@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import MapKit
 
 class ParcelDetailViewController: UIViewController {
   
   // MARK: Outlets
   @IBOutlet weak var trackingNumberLabel: UILabel!
+  @IBOutlet weak var mapView: MKMapView!
   
   // MARK: Lifecycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -24,10 +27,15 @@ class ParcelDetailViewController: UIViewController {
     super.viewDidAppear(animated)
     
     trackingNumberLabel.text = parcel?.trackingNumber
+    
+    print("Parcel info: \(parcel)")
+    
+    var address = "\(parcel?.startingAddress)"
   }
   
   // MARK: Properties
   var parcel: Parcel?
+  let geocoder = CLGeocoder()
   
 }
 

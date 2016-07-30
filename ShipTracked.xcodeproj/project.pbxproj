@@ -40,6 +40,7 @@
 		8B5CE3D21D443755003E00F4 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */; };
 		8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */; };
 		8B7CFE301D4D36400099754F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7CFE2F1D4D36400099754F /* MapKit.framework */; };
+		8B7CFE321D4D3E9D0099754F /* AddressSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CFE311D4D3E9D0099754F /* AddressSpec.swift */; };
 		8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */; };
 		8BDACC251CF4FDD2005D6E9F /* AddressLocationData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */; };
 		8BDACC271CF4FF23005D6E9F /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDACC261CF4FF23005D6E9F /* Plist.swift */; };
@@ -127,6 +128,7 @@
 		8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		8B7CFE2F1D4D36400099754F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8B7CFE311D4D3E9D0099754F /* AddressSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressSpec.swift; sourceTree = "<group>"; };
 		8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSourceTests.swift; sourceTree = "<group>"; };
 		8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AddressLocationData.plist; sourceTree = "<group>"; };
 		8BDACC261CF4FF23005D6E9F /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				8B429FBF1CEA631500B81C1B /* ParcelTests.swift */,
+				8B7CFE311D4D3E9D0099754F /* AddressSpec.swift */,
 				8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */,
 				8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */,
 				8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */,
@@ -703,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */,
+				8B7CFE321D4D3E9D0099754F /* AddressSpec.swift in Sources */,
 				8B4241F91D4AFE5700D76253 /* MockData.swift in Sources */,
 				8B033E071D45A914009312F6 /* MockURLSessionDataTask.swift in Sources */,
 				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */,

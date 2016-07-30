@@ -23,6 +23,11 @@ class ParcelTableViewController: UITableViewController {
     showTrackingNumberInputAlert()
   }
   
+  // MARK: Functions
+  private func addValidParcelForTesting() {
+    
+  }
+  
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,6 +38,9 @@ class ParcelTableViewController: UITableViewController {
     navigationItem.leftBarButtonItem = editButtonItem()
     
     title = "Parcel List"
+    
+    let trackingNumber = "1Z202Y36A898759591"
+    dataSource.addParcelWithTrackingNumber(trackingNumber)
     
   }
   

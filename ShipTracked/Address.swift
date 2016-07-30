@@ -16,6 +16,14 @@ struct Address: Equatable {
   var state: String?
   var postalCode: String?
   var country: String?
+  
+  func getFullAddress() -> String {
+    var fullAddress = ""
+    
+    
+    
+    return fullAddress
+  }
 }
 
 func ==(lhs: Address, rhs: Address) -> Bool {

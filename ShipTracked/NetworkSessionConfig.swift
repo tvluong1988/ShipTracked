@@ -24,7 +24,5 @@ struct NetworkSessionConfig {
  - returns: running in UI Testing environment or not
  */
 private func isUITesting() -> Bool {
-  let isUITesting = NSProcessInfo.processInfo().arguments.contains(NetworkSessionConfig.TestingConfig.UITesting.rawValue)
-  print("is UITesting? \(isUITesting)" )
-  return isUITesting
+  return NSProcessInfo.processInfo().arguments.contains(NetworkSessionConfig.TestingConfig.UITesting.rawValue)
 }
