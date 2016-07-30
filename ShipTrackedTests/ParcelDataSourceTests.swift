@@ -43,7 +43,7 @@ class ParcelDataSourceSpec: QuickSpec {
       
       context("when addParcelWithTrackingNumber is called with a valid tracking number") {
         it("then it should add a new parcel with tracking number validated to the parcelDataSource dataObject list") {
-          let invalidDataResponse = self.createValidDataResponse()
+          let invalidDataResponse = createValidDataResponse()
           mockURLSession.nextData = invalidDataResponse
           
           parcelDataSource.addParcelWithTrackingNumber(trackingNumber)
@@ -58,7 +58,7 @@ class ParcelDataSourceSpec: QuickSpec {
       
       context("when addParcelWithTrackingNumber is called with an invalid tracking number") {
         it("then it should add a new parcel with tracking number invalidated to the parcelDataSource dataObject list") {
-          let validDataResponse = self.createInvalidDataResponse()
+          let validDataResponse = createInvalidDataResponse()
           mockURLSession.nextData = validDataResponse
           
           parcelDataSource.addParcelWithTrackingNumber(invalidTrackingNumber)
@@ -73,74 +73,6 @@ class ParcelDataSourceSpec: QuickSpec {
     }
   }
 }
-
-// MARK: - Private functions
-private extension ParcelDataSourceSpec {
-  func createValidDataResponse() -> NSData {
-    
-    let address =
-      ["Address": ["PostalCode" : "34639",
-        "City" : "LAND O LAKES",
-        "CountryCode" : "US",
-        "StateProvinceCode" : "FL"
-        ]
-    ]
-    
-    let activityLocation =
-      ["ActivityLocation":[address]]
-    
-    let activity =
-      ["Activity": [activityLocation,
-        activityLocation,
-        activityLocation
-        ]
-    ]
-    
-    let shipmentAddresses =
-      [
-        ["Type": ["Code" : "01"],
-          "Address": ["AddressLine": "Starting Address",
-            "City": "Starting City",
-            "StateProvinceCode": "IA",
-            "PostalCode": "50000",
-            "CountryCode": "US"
-          ]
-        ],
-        ["Type": ["Code" : "02"],
-          "Address": ["AddressLine": "Ending Address",
-            "City": "Ending City",
-            "StateProvinceCode": "IA",
-            "PostalCode": "50000",
-            "CountryCode": "US"
-          ]
-        ]
-    ]
-    
-    let validJSONResponse =
-      ["TrackResponse":
-        ["Shipment":[
-          "InquiryNumber": ["Value": "1Z202Y36A898759591"],
-          "Package": activity,
-          "ShipmentAddress": shipmentAddresses
-          
-          ]
-        ]
-    ]
-    
-    let data = try! NSJSONSerialization.dataWithJSONObject(validJSONResponse, options: .PrettyPrinted)
-    return data
-    
-  }
-  
-  func createInvalidDataResponse() -> NSData {
-    let invalidJSONResponse = ["FailKey":"FailValue"]
-    
-    let data = try! NSJSONSerialization.dataWithJSONObject(invalidJSONResponse, options: .PrettyPrinted)
-    return data
-  }
-}
-
-
 
 
 

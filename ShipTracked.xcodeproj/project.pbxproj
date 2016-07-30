@@ -11,7 +11,7 @@
 		5B294998A4D6646063EEDA51 /* Pods_ShipTrackedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */; };
 		8B033E071D45A914009312F6 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */; };
 		8B033E091D45A962009312F6 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */; };
-		8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */; };
+		8B1C6B141D48628B00460C3D /* get_certs_from_s3.rb in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C6B131D48628B00460C3D /* get_certs_from_s3.rb */; };
 		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
 		8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */; };
@@ -23,6 +23,12 @@
 		8B3711461CF228B4009F1B9A /* DataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711451CF228B4009F1B9A /* DataList.swift */; };
 		8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711471CF2383A009F1B9A /* ParcelCell.swift */; };
 		8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */; };
+		8B4241F01D4AF67800D76253 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241EF1D4AF67800D76253 /* TypeAlias.swift */; };
+		8B4241F21D4AF6B400D76253 /* SeededURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F11D4AF6B400D76253 /* SeededURLSession.swift */; };
+		8B4241F41D4AF79B00D76253 /* SeededDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F31D4AF79B00D76253 /* SeededDataTask.swift */; };
+		8B4241F61D4AF9D000D76253 /* NetworkSessionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F51D4AF9D000D76253 /* NetworkSessionConfig.swift */; };
+		8B4241F91D4AFE5700D76253 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F81D4AFE5700D76253 /* MockData.swift */; };
+		8B4241FA1D4AFFF100D76253 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4241F81D4AFE5700D76253 /* MockData.swift */; };
 		8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA71CEA631500B81C1B /* AppDelegate.swift */; };
 		8B429FAA1CEA631500B81C1B /* ParcelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B429FA91CEA631500B81C1B /* ParcelDetailViewController.swift */; };
 		8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B429FAB1CEA631500B81C1B /* Main.storyboard */; };
@@ -34,7 +40,6 @@
 		8B5CE3D21D443755003E00F4 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */; };
 		8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */; };
 		8BAE47141CEE4EC400574208 /* ParcelDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */; };
-		8BB095CD1D4075DC00DB03F0 /* iosDeveloper.p12.enc in Resources */ = {isa = PBXBuildFile; fileRef = 8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */; };
 		8BDACC251CF4FDD2005D6E9F /* AddressLocationData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */; };
 		8BDACC271CF4FF23005D6E9F /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDACC261CF4FF23005D6E9F /* Plist.swift */; };
 		8BF307451D330FC6004B710E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8BF307441D330FC6004B710E /* LICENSE */; };
@@ -87,7 +92,7 @@
 		694A27870A039475958F59D9 /* Pods_ShipTrackedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShipTrackedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
-		8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDistribution.p12.enc; sourceTree = "<group>"; };
+		8B1C6B131D48628B00460C3D /* get_certs_from_s3.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = get_certs_from_s3.rb; path = travis/get_certs_from_s3.rb; sourceTree = "<group>"; };
 		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
 		8B21ECC01CEA6D0C00EAA1D8 /* UPSServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSServiceTests.swift; sourceTree = "<group>"; };
@@ -99,6 +104,11 @@
 		8B3711451CF228B4009F1B9A /* DataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataList.swift; sourceTree = "<group>"; };
 		8B3711471CF2383A009F1B9A /* ParcelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelCell.swift; sourceTree = "<group>"; };
 		8B3711491CF239F2009F1B9A /* ParcelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelTableViewController.swift; sourceTree = "<group>"; };
+		8B4241EF1D4AF67800D76253 /* TypeAlias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
+		8B4241F11D4AF6B400D76253 /* SeededURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeededURLSession.swift; sourceTree = "<group>"; };
+		8B4241F31D4AF79B00D76253 /* SeededDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeededDataTask.swift; sourceTree = "<group>"; };
+		8B4241F51D4AF9D000D76253 /* NetworkSessionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSessionConfig.swift; sourceTree = "<group>"; };
+		8B4241F81D4AFE5700D76253 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		8B429FA41CEA631500B81C1B /* ShipTracked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShipTracked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B429FA71CEA631500B81C1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B429FA91CEA631500B81C1B /* ParcelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +126,6 @@
 		8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		8BAE47131CEE4EC400574208 /* ParcelDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDataSourceTests.swift; sourceTree = "<group>"; };
-		8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosDeveloper.p12.enc; sourceTree = "<group>"; };
 		8BDACC241CF4FDD2005D6E9F /* AddressLocationData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AddressLocationData.plist; sourceTree = "<group>"; };
 		8BDACC261CF4FF23005D6E9F /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		8BF307441D330FC6004B710E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -237,13 +246,25 @@
 		8B37114E1CF23B5B009F1B9A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				8B3711431CF228AD009F1B9A /* DataSource.swift */,
-				8B3711451CF228B4009F1B9A /* DataList.swift */,
 				8B3711411CF228A7009F1B9A /* SourceType.swift */,
-				8B37113F1CF22778009F1B9A /* ParcelList.swift */,
+				8B3711431CF228AD009F1B9A /* DataSource.swift */,
 				8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */,
+				8B37113F1CF22778009F1B9A /* ParcelList.swift */,
+				8B3711451CF228B4009F1B9A /* DataList.swift */,
 			);
 			name = DataSource;
+			sourceTree = "<group>";
+		};
+		8B4241F71D4AFD5C00D76253 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */,
+				8B4241F11D4AF6B400D76253 /* SeededURLSession.swift */,
+				8B4241F31D4AF79B00D76253 /* SeededDataTask.swift */,
+				8B4241F51D4AF9D000D76253 /* NetworkSessionConfig.swift */,
+				8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		8B429F9B1CEA631500B81C1B = {
@@ -277,6 +298,7 @@
 		8B429FA61CEA631500B81C1B /* ShipTracked */ = {
 			isa = PBXGroup;
 			children = (
+				8B4241EF1D4AF67800D76253 /* TypeAlias.swift */,
 				8B5CE3D31D4437B6003E00F4 /* Service */,
 				8B21ECC61CEAB56B00EAA1D8 /* Support */,
 				8B37114C1CF23B47009F1B9A /* ViewController */,
@@ -285,8 +307,7 @@
 				8B37114E1CF23B5B009F1B9A /* DataSource */,
 				8BAE47121CEE3CF500574208 /* Library */,
 				8BDACC261CF4FF23005D6E9F /* Plist.swift */,
-				8B5CE3D11D443755003E00F4 /* URLSessionProtocol.swift */,
-				8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */,
+				8B4241F71D4AFD5C00D76253 /* Network */,
 			);
 			path = ShipTracked;
 			sourceTree = "<group>";
@@ -300,6 +321,7 @@
 				8B5CE3D41D4456A6003E00F4 /* MockURLSession.swift */,
 				8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */,
 				8B429FC11CEA631500B81C1B /* Info.plist */,
+				8B4241F81D4AFE5700D76253 /* MockData.swift */,
 			);
 			path = ShipTrackedTests;
 			sourceTree = "<group>";
@@ -328,20 +350,12 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
-		8BB095CA1D4075DC00DB03F0 /* cert */ = {
-			isa = PBXGroup;
-			children = (
-				8B1AB39D1D419E6300C680EB /* iosDistribution.p12.enc */,
-				8BB095CB1D4075DC00DB03F0 /* iosDeveloper.p12.enc */,
-			);
-			path = cert;
-			sourceTree = "<group>";
-		};
 		8BF3074E1D331111004B710E /* travis */ = {
 			isa = PBXGroup;
 			children = (
 				8BF307481D3310B5004B710E /* script.sh */,
 				8BF3074A1D3310E6004B710E /* after_success_script.sh */,
+				8B1C6B131D48628B00460C3D /* get_certs_from_s3.rb */,
 			);
 			name = travis;
 			sourceTree = "<group>";
@@ -349,7 +363,6 @@
 		8BF3074F1D3313DD004B710E /* fastlane */ = {
 			isa = PBXGroup;
 			children = (
-				8BB095CA1D4075DC00DB03F0 /* cert */,
 				8BF307501D3313DD004B710E /* Appfile */,
 				8BF307511D3313DD004B710E /* Deliverfile */,
 				8BF307521D3313DD004B710E /* Fastfile */,
@@ -524,13 +537,12 @@
 				8BF3076E1D3313DE004B710E /* release_notes.txt in Resources */,
 				8BF307741D3313DE004B710E /* secondary_first_sub_category.txt in Resources */,
 				8BF307731D3313DE004B710E /* secondary_category.txt in Resources */,
-				8B1AB39E1D419E6300C680EB /* iosDistribution.p12.enc in Resources */,
 				8BF307761D3313DE004B710E /* README.txt in Resources */,
 				8BF307711D3313DE004B710E /* primary_first_sub_category.txt in Resources */,
 				8BF3076D1D3313DE004B710E /* privacy_url.txt in Resources */,
 				8B429FB21CEA631500B81C1B /* Assets.xcassets in Resources */,
 				8BF3076A1D3313DE004B710E /* keywords.txt in Resources */,
-				8BB095CD1D4075DC00DB03F0 /* iosDeveloper.p12.enc in Resources */,
+				8B1C6B141D48628B00460C3D /* get_certs_from_s3.rb in Resources */,
 				8B429FAD1CEA631500B81C1B /* Main.storyboard in Resources */,
 				8BF307451D330FC6004B710E /* LICENSE in Resources */,
 				8BF3076B1D3313DE004B710E /* marketing_url.txt in Resources */,
@@ -655,6 +667,7 @@
 			files = (
 				8BDACC271CF4FF23005D6E9F /* Plist.swift in Sources */,
 				8B429FAA1CEA631500B81C1B /* ParcelDetailViewController.swift in Sources */,
+				8B4241F41D4AF79B00D76253 /* SeededDataTask.swift in Sources */,
 				8B3711461CF228B4009F1B9A /* DataList.swift in Sources */,
 				8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */,
 				8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */,
@@ -665,6 +678,9 @@
 				8B033E091D45A962009312F6 /* URLSessionDataTaskProtocol.swift in Sources */,
 				8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */,
 				8B5CE3D21D443755003E00F4 /* URLSessionProtocol.swift in Sources */,
+				8B4241F21D4AF6B400D76253 /* SeededURLSession.swift in Sources */,
+				8B4241F01D4AF67800D76253 /* TypeAlias.swift in Sources */,
+				8B4241F61D4AF9D000D76253 /* NetworkSessionConfig.swift in Sources */,
 				8B3711421CF228A7009F1B9A /* SourceType.swift in Sources */,
 				8B21ECC81CEAC05C00EAA1D8 /* Address.swift in Sources */,
 				8B3711401CF22778009F1B9A /* ParcelList.swift in Sources */,
@@ -678,6 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B5CE3D51D4456A6003E00F4 /* MockURLSession.swift in Sources */,
+				8B4241F91D4AFE5700D76253 /* MockData.swift in Sources */,
 				8B033E071D45A914009312F6 /* MockURLSessionDataTask.swift in Sources */,
 				8B21ECC11CEA6D0C00EAA1D8 /* UPSServiceTests.swift in Sources */,
 				8B429FC01CEA631500B81C1B /* ParcelTests.swift in Sources */,
@@ -690,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B429FCB1CEA631500B81C1B /* ShipTrackedUITests.swift in Sources */,
+				8B4241FA1D4AFFF100D76253 /* MockData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

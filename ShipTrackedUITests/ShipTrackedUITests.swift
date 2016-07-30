@@ -9,28 +9,91 @@
 import XCTest
 
 class ShipTrackedUITests: XCTestCase {
-        
-    override func setUp() {
-        super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+  
+  // MARK: Tests
+  func testUserAddValidTrackingNumber() {
+    
+    userAddTrackingNumber(validTrackingNumber)
+    
+    let validTrackingNumberElement = app.staticTexts[validTrackingNumber]
+    waitForElementToAppear(validTrackingNumberElement)
+    
+    XCTAssert(app.staticTexts["true"].exists)
+  }
+  
+  func testUserAddInvalidTrackingNumber() {
+    
+    userAddTrackingNumber(invalidTrackingNumber)
+    
+    let invalidTrackingNumberElement = app.staticTexts[invalidTrackingNumber]
+    waitForElementToAppear(invalidTrackingNumberElement)
+    
+    XCTAssert(app.staticTexts["false"].exists)
+  }
+  
+  // MARK: Lifecycle
+  override func setUp() {
+    super.setUp()
+    
+    continueAfterFailure = false
+    
+    setUITestingEnvironment()
+    addStubNetworkResponseInLaunchEnvironment()
+    
+    app.launch()
+    
+    sleep(5)
+  }
+  
+  override func tearDown() {
+    super.tearDown()
+  }
+  
+  // MARK: Properties
+  let validTrackingNumber = "1Z202Y36A898759591"
+  let invalidTrackingNumber = "1111"
+  
+  // JSON Testing Endpoint
+  let endpointURLTesting = "https://wwwcie.ups.com/json/Track"
+  
+  let app = XCUIApplication()
+  let UITestingEnvironment = "UI-TESTING"
+}
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
+// MARK: - Private Functions
+private extension ShipTrackedUITests {
+  func setUITestingEnvironment() {
+    app.launchArguments.append(UITestingEnvironment)
+  }
+  
+  func addStubNetworkResponseInLaunchEnvironment() {
+    let validDataResponse = NSString(data: createValidDataResponse(), encoding: NSUTF8StringEncoding)! as String
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    let invalidDataResponse = NSString(data: createInvalidDataResponse(), encoding: NSUTF8StringEncoding)! as String
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    app.launchEnvironment[validTrackingNumber] = validDataResponse
+    app.launchEnvironment[invalidTrackingNumber] = invalidDataResponse
+  }
+  
+  func userAddTrackingNumber(trackingNumber: String) {
+    app.navigationBars["Parcel List"].buttons["Add"].tap()
     
+    let collectionViewsQuery = app.alerts["New Parcel"].collectionViews
+    collectionViewsQuery.textFields["tracking number here"].tap()
+    collectionViewsQuery.textFields["tracking number here"].typeText(trackingNumber)
+    collectionViewsQuery.buttons["OK"].tap()
+  }
+  
+  func waitForElementToAppear(element: XCUIElement, file: String = #file, line: UInt = #line) {
+    let existsPredicate = NSPredicate(format: "exists == true")
+    expectationForPredicate(existsPredicate, evaluatedWithObject: element, handler: nil)
+    
+    waitForExpectationsWithTimeout(5) { (error) -> Void in
+      if (error != nil) {
+        let message = "Failed to find \(element) after 5 seconds."
+        self.recordFailureWithDescription(message, inFile: file, atLine: line, expected: true)
+      }
+    }
+  }
+  
 }
