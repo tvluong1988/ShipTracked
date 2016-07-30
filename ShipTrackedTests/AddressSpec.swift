@@ -26,7 +26,7 @@ class AddressSpec: QuickSpec {
       
       context("when get full address is called") {
         it("then should get full address") {
-          let expectedFullAddress = "\(fakeAddressLine), \(fakeCity) \(fakeState), \(fakePostalCode) \(fakeCountry)"
+          let expectedFullAddress = "\(fakeAddressLine) \(fakeCity) \(fakeState) \(fakePostalCode) \(fakeCountry)"
           let actualFullAddress = address.getFullAddress()
           
           expect(actualFullAddress).to(contain(expectedFullAddress))

@@ -18,9 +18,11 @@ struct Address: Equatable {
   var country: String?
   
   func getFullAddress() -> String {
-    var fullAddress = ""
+    let addressFields = [addressLine, city, state, postalCode, country]
     
+    var fullAddress = addressFields.flatMap({$0}).reduce(""){$0 + " " + $1}
     
+    fullAddress.removeAtIndex(fullAddress.startIndex)
     
     return fullAddress
   }
