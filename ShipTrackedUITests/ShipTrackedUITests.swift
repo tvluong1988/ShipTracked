@@ -11,17 +11,31 @@ import XCTest
 class ShipTrackedUITests: XCTestCase {
   
   // MARK: Tests
-  func testUINetworkStub() {
+  func testUserAddValidTrackingNumber() {
     
     let app = XCUIApplication()
     app.navigationBars["Parcel List"].buttons["Add"].tap()
     
     let collectionViewsQuery = app.alerts["New Parcel"].collectionViews
     collectionViewsQuery.textFields["tracking number here"].tap()
-    collectionViewsQuery.textFields["tracking number here"].typeText(trackingNumber)
+    collectionViewsQuery.textFields["tracking number here"].typeText(validTrackingNumber)
     collectionViewsQuery.buttons["OK"].tap()
     
-    XCTAssert(app.staticTexts[trackingNumber].exists)
+    XCTAssert(app.staticTexts[validTrackingNumber].exists)
+    XCTAssert(app.staticTexts["true"].exists)
+  }
+  
+  func testUserAddInvalidTrackingNumber() {
+    
+    let app = XCUIApplication()
+    app.navigationBars["Parcel List"].buttons["Add"].tap()
+    
+    let collectionViewsQuery = app.alerts["New Parcel"].collectionViews
+    collectionViewsQuery.textFields["tracking number here"].tap()
+    collectionViewsQuery.textFields["tracking number here"].typeText(invalidTrackingNumber)
+    collectionViewsQuery.buttons["OK"].tap()
+    
+    XCTAssert(app.staticTexts[invalidTrackingNumber].exists)
     XCTAssert(app.staticTexts["false"].exists)
   }
   
@@ -31,8 +45,13 @@ class ShipTrackedUITests: XCTestCase {
     
     continueAfterFailure = false
     
+    let validDataResponse = NSString(data: createValidDataResponse(), encoding: NSUTF8StringEncoding)! as String
+    
+    let invalidDataResponse = NSString(data: createInvalidDataResponse(), encoding: NSUTF8StringEncoding)! as String
+    
+    
     app.launchArguments.append(UITestingEnvironment)
-    app.launchEnvironment += [endpointURLTesting: "Failed"]
+    app.launchEnvironment += [validTrackingNumber: validDataResponse, invalidTrackingNumber: invalidDataResponse]
     app.launch()
     
     sleep(1)
@@ -43,7 +62,9 @@ class ShipTrackedUITests: XCTestCase {
   }
   
   // MARK: Properties
-  let trackingNumber = "1Z202Y36A898759591"
+  let validTrackingNumber = "1Z202Y36A898759591"
+  let invalidTrackingNumber = "1111"
+  
   // JSON Testing Endpoint
   let endpointURLTesting = "https://wwwcie.ups.com/json/Track"
   

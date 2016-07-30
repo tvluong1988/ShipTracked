@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class SeededDataTask: NSURLSessionDataTask {
   
@@ -14,15 +15,21 @@ class SeededDataTask: NSURLSessionDataTask {
   override func resume() {
     
     if let url = request.URL,
-      let json = NSProcessInfo.processInfo().environment[url.absoluteString] {
+      let httpBody = request.HTTPBody {
       
-      let response = NSHTTPURLResponse(URL: url, statusCode: 200, HTTPVersion: nil, headerFields: nil)
+      let jsonHttpBody = JSON(data: httpBody)
       
-      let data = json.dataUsingEncoding(NSUTF8StringEncoding)
-      
-      completionHandler(data, response, nil)
+      if let trackingNumber = jsonHttpBody["TrackRequest"]["InquiryNumber"].string,
+        let jsonDataString = NSProcessInfo.processInfo().environment[trackingNumber] {
+        
+        let response = NSHTTPURLResponse(URL: url, statusCode: 200, HTTPVersion: nil, headerFields: nil)
+        
+        let data = jsonDataString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        completionHandler(data, response, nil)
+        
+      }
     }
-    
   }
   
   // MARK: Lifecycle
