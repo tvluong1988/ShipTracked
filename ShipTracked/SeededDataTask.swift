@@ -17,18 +17,24 @@ class SeededDataTask: NSURLSessionDataTask {
     if let url = request.URL,
       let httpBody = request.HTTPBody {
       
+      var response: NSHTTPURLResponse?
+      var data: NSData?
+      var error: NSError?
+      
       let jsonHttpBody = JSON(data: httpBody)
       
       if let trackingNumber = jsonHttpBody["TrackRequest"]["InquiryNumber"].string,
         let jsonDataString = NSProcessInfo.processInfo().environment[trackingNumber] {
         
-        let response = NSHTTPURLResponse(URL: url, statusCode: 200, HTTPVersion: nil, headerFields: nil)
+        response = NSHTTPURLResponse(URL: url, statusCode: 200, HTTPVersion: nil, headerFields: nil)
         
-        let data = jsonDataString.dataUsingEncoding(NSUTF8StringEncoding)
+        data = jsonDataString.dataUsingEncoding(NSUTF8StringEncoding)
         
-        completionHandler(data, response, nil)
-        
+        error = nil
       }
+      
+      completionHandler(data, response, error)
+      
     }
   }
   

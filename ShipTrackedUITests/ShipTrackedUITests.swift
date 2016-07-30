@@ -13,29 +13,21 @@ class ShipTrackedUITests: XCTestCase {
   // MARK: Tests
   func testUserAddValidTrackingNumber() {
     
-    let app = XCUIApplication()
-    app.navigationBars["Parcel List"].buttons["Add"].tap()
+    userAddTrackingNumber(validTrackingNumber)
     
-    let collectionViewsQuery = app.alerts["New Parcel"].collectionViews
-    collectionViewsQuery.textFields["tracking number here"].tap()
-    collectionViewsQuery.textFields["tracking number here"].typeText(validTrackingNumber)
-    collectionViewsQuery.buttons["OK"].tap()
+    let validTrackingNumberElement = app.staticTexts[validTrackingNumber]
+    waitForElementToAppear(validTrackingNumberElement)
     
-    XCTAssert(app.staticTexts[validTrackingNumber].exists)
     XCTAssert(app.staticTexts["true"].exists)
   }
   
   func testUserAddInvalidTrackingNumber() {
     
-    let app = XCUIApplication()
-    app.navigationBars["Parcel List"].buttons["Add"].tap()
+    userAddTrackingNumber(invalidTrackingNumber)
     
-    let collectionViewsQuery = app.alerts["New Parcel"].collectionViews
-    collectionViewsQuery.textFields["tracking number here"].tap()
-    collectionViewsQuery.textFields["tracking number here"].typeText(invalidTrackingNumber)
-    collectionViewsQuery.buttons["OK"].tap()
+    let invalidTrackingNumberElement = app.staticTexts[invalidTrackingNumber]
+    waitForElementToAppear(invalidTrackingNumberElement)
     
-    XCTAssert(app.staticTexts[invalidTrackingNumber].exists)
     XCTAssert(app.staticTexts["false"].exists)
   }
   
@@ -45,16 +37,12 @@ class ShipTrackedUITests: XCTestCase {
     
     continueAfterFailure = false
     
-    let validDataResponse = NSString(data: createValidDataResponse(), encoding: NSUTF8StringEncoding)! as String
+    setUITestingEnvironment()
+    addStubNetworkResponseInLaunchEnvironment()
     
-    let invalidDataResponse = NSString(data: createInvalidDataResponse(), encoding: NSUTF8StringEncoding)! as String
-    
-    
-    app.launchArguments.append(UITestingEnvironment)
-    app.launchEnvironment += [validTrackingNumber: validDataResponse, invalidTrackingNumber: invalidDataResponse]
     app.launch()
     
-    sleep(1)
+    sleep(5)
   }
   
   override func tearDown() {
@@ -72,9 +60,40 @@ class ShipTrackedUITests: XCTestCase {
   let UITestingEnvironment = "UI-TESTING"
 }
 
-func +=<K, V> (inout left: [K : V], right: [K : V]) {
-  for (k, v) in right {
-    left[k] = v
+// MARK: - Private Functions
+private extension ShipTrackedUITests {
+  func setUITestingEnvironment() {
+    app.launchArguments.append(UITestingEnvironment)
   }
+  
+  func addStubNetworkResponseInLaunchEnvironment() {
+    let validDataResponse = NSString(data: createValidDataResponse(), encoding: NSUTF8StringEncoding)! as String
+    
+    let invalidDataResponse = NSString(data: createInvalidDataResponse(), encoding: NSUTF8StringEncoding)! as String
+    
+    app.launchEnvironment[validTrackingNumber] = validDataResponse
+    app.launchEnvironment[invalidTrackingNumber] = invalidDataResponse
+  }
+  
+  func userAddTrackingNumber(trackingNumber: String) {
+    app.navigationBars["Parcel List"].buttons["Add"].tap()
+    
+    let collectionViewsQuery = app.alerts["New Parcel"].collectionViews
+    collectionViewsQuery.textFields["tracking number here"].tap()
+    collectionViewsQuery.textFields["tracking number here"].typeText(trackingNumber)
+    collectionViewsQuery.buttons["OK"].tap()
+  }
+  
+  func waitForElementToAppear(element: XCUIElement, file: String = #file, line: UInt = #line) {
+    let existsPredicate = NSPredicate(format: "exists == true")
+    expectationForPredicate(existsPredicate, evaluatedWithObject: element, handler: nil)
+    
+    waitForExpectationsWithTimeout(5) { (error) -> Void in
+      if (error != nil) {
+        let message = "Failed to find \(element) after 5 seconds."
+        self.recordFailureWithDescription(message, inFile: file, atLine: line, expected: true)
+      }
+    }
+  }
+  
 }
-
