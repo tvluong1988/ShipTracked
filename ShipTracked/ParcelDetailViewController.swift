@@ -16,21 +16,23 @@ class ParcelDetailViewController: UIViewController {
   @IBOutlet weak var mapView: MKMapView!
   
   // MARK: Lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-    
-  }
-  
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    trackingNumberLabel.text = parcel?.trackingNumber
+    self.title = parcel?.trackingNumber
     
-    print("Parcel info: \(parcel)")
-    
-    var address = "\(parcel?.startingAddress)"
+    if let parcel = parcel {
+      
+      for address in parcel.addressesToAnnotate {
+        if AddressPlacemarkSession.sharedSession.addressBook.keys.contains(address.getFullAddress()) {
+          mapView.addAnnotation(MKPlacemark(placemark: AddressPlacemarkSession.sharedSession.addressBook[address.getFullAddress()]!))
+          print("added placemark to mapview")
+        } else {
+          addAddressToMapView(address.getFullAddress())
+          print("geocode request to get placemark")
+        }
+      }
+    }
   }
   
   // MARK: Properties
@@ -38,5 +40,43 @@ class ParcelDetailViewController: UIViewController {
   let geocoder = CLGeocoder()
   
 }
+
+extension ParcelDetailViewController {
+  func addAddressToMapView(address: String) {
+    
+    geocoder.geocodeAddressString(address) {
+      placemarks, error in
+      
+      if let error = error {
+        print(error)
+      } else {
+        
+        if let placemark = placemarks?.first {
+          
+          AddressPlacemarkSession.sharedSession.addressBook[address] = placemark
+          
+          dispatch_async(dispatch_get_main_queue()) {
+            [unowned self] in
+            
+            self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -11,6 +11,15 @@ import XCTest
 class ShipTrackedUITests: XCTestCase {
   
   // MARK: Tests
+  func testUserSelectParcelFromTableView() {
+    userAddTrackingNumber(validTrackingNumber)
+    
+    let validTrackingNumberElement = app.staticTexts[validTrackingNumber]
+    waitForElementToAppear(validTrackingNumberElement)
+    
+    app.tables.staticTexts[validTrackingNumber].tap()
+  }
+  
   func testUserAddValidTrackingNumber() {
     
     userAddTrackingNumber(validTrackingNumber)

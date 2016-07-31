@@ -35,6 +35,13 @@ struct Parcel: Equatable, Item {
   
   var activityAddresses = [Address]()
   
+  var addressesToAnnotate: [Address] {
+    var addresses = [self.startingAddress]
+    addresses += self.activityAddresses
+    
+    return addresses
+  }
+  
 }
 
 func ==(lhs: Parcel, rhs: Parcel) -> Bool {
