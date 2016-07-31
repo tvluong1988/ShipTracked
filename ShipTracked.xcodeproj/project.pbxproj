@@ -12,6 +12,7 @@
 		8B033E071D45A914009312F6 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */; };
 		8B033E091D45A962009312F6 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */; };
 		8B1335FD1D4DB0DA00E9A02D /* AddressPlacemarkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1335FC1D4DB0DA00E9A02D /* AddressPlacemarkSession.swift */; };
+		8B1335FF1D4DB7E300E9A02D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1335FE1D4DB7E300E9A02D /* Item.swift */; };
 		8B1C6B141D48628B00460C3D /* get_certs_from_s3.rb in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C6B131D48628B00460C3D /* get_certs_from_s3.rb */; };
 		8B21ECBD1CEA645300EAA1D8 /* UPSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */; };
 		8B21ECBF1CEA648B00EAA1D8 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */; };
@@ -96,6 +97,7 @@
 		8B033E061D45A914009312F6 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		8B033E081D45A962009312F6 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 		8B1335FC1D4DB0DA00E9A02D /* AddressPlacemarkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPlacemarkSession.swift; sourceTree = "<group>"; };
+		8B1335FE1D4DB7E300E9A02D /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8B1C6B131D48628B00460C3D /* get_certs_from_s3.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = get_certs_from_s3.rb; path = travis/get_certs_from_s3.rb; sourceTree = "<group>"; };
 		8B21ECBC1CEA645300EAA1D8 /* UPSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPSService.swift; sourceTree = "<group>"; };
 		8B21ECBE1CEA648B00EAA1D8 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				8B21ECC21CEAA30000EAA1D8 /* ParcelDataSource.swift */,
 				8B37113F1CF22778009F1B9A /* ParcelList.swift */,
 				8B3711451CF228B4009F1B9A /* DataList.swift */,
+				8B1335FE1D4DB7E300E9A02D /* Item.swift */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			children = (
 				8B429FAB1CEA631500B81C1B /* Main.storyboard */,
 				8B4241EF1D4AF67800D76253 /* TypeAlias.swift */,
+				8B1335FC1D4DB0DA00E9A02D /* AddressPlacemarkSession.swift */,
 				8B5CE3D31D4437B6003E00F4 /* Service */,
 				8B21ECC61CEAB56B00EAA1D8 /* Support */,
 				8B37114C1CF23B47009F1B9A /* ViewController */,
@@ -315,7 +319,6 @@
 				8B37114E1CF23B5B009F1B9A /* DataSource */,
 				8BAE47121CEE3CF500574208 /* Library */,
 				8B4241F71D4AFD5C00D76253 /* Network */,
-				8B1335FC1D4DB0DA00E9A02D /* AddressPlacemarkSession.swift */,
 			);
 			path = ShipTracked;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				8B3711461CF228B4009F1B9A /* DataList.swift in Sources */,
 				8B37114A1CF239F2009F1B9A /* ParcelTableViewController.swift in Sources */,
 				8B3711481CF2383A009F1B9A /* ParcelCell.swift in Sources */,
+				8B1335FF1D4DB7E300E9A02D /* Item.swift in Sources */,
 				8B429FA81CEA631500B81C1B /* AppDelegate.swift in Sources */,
 				8BF307471D330FE6004B710E /* README.md in Sources */,
 				8B21ECC31CEAA30000EAA1D8 /* ParcelDataSource.swift in Sources */,
