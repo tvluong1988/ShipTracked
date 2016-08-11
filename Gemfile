@@ -4,3 +4,6 @@ source "https://rubygems.org"
 
 # gem "rails"
 gem "fastlane"
+gem "xcov"
+gem "aws-sdk"
+gem "cocoapods"
