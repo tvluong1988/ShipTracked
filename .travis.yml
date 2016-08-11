@@ -9,6 +9,7 @@ on_failure: never
 
 
 before_install:
+- pod repo update
 - gem install xcov --no-ri --no-rdoc --no-document
 - gem update fastlane --no-ri --no-rdoc --no-document
 - gem install aws-sdk --no-ri --no-rdoc --no-document
