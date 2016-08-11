@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import MapKit
+import GoogleMaps
 
 class ParcelDetailViewController: UIViewController {
   
   // MARK: Outlets
   @IBOutlet weak var trackingNumberLabel: UILabel!
-  @IBOutlet weak var mapView: MKMapView!
+  @IBOutlet weak var mapView: UIView!
   
   // MARK: Lifecycle
   override func viewDidAppear(animated: Bool) {
@@ -21,48 +21,34 @@ class ParcelDetailViewController: UIViewController {
     
     self.title = parcel?.trackingNumber
     
-    if let parcel = parcel {
-      
-      for address in parcel.addressesToAnnotate {
-        if AddressPlacemarkSession.sharedSession.addressBook.keys.contains(address.getFullAddress()) {
-          mapView.addAnnotation(MKPlacemark(placemark: AddressPlacemarkSession.sharedSession.addressBook[address.getFullAddress()]!))
-          print("added placemark to mapview")
-        } else {
-          addAddressToMapView(address.getFullAddress())
-          print("geocode request to get placemark")
-        }
-      }
-    }
+    loadGoogleMapView()
   }
   
   // MARK: Properties
   var parcel: Parcel?
-  let geocoder = CLGeocoder()
   
 }
 
-extension ParcelDetailViewController {
+private extension ParcelDetailViewController {
   func addAddressToMapView(address: String) {
+  }
+  
+  func loadGoogleMapView() {
+    let defaultLat = -33.86
+    let defaultLong = 151.20
+    let defaultZoom: Float = 6.0
     
-    geocoder.geocodeAddressString(address) {
-      placemarks, error in
-      
-      if let error = error {
-        print(error)
-      } else {
-        
-        if let placemark = placemarks?.first {
-          
-          AddressPlacemarkSession.sharedSession.addressBook[address] = placemark
-          
-          dispatch_async(dispatch_get_main_queue()) {
-            [unowned self] in
-            
-            self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
-          }
-        }
-      }
-    }
+    let camera = GMSCameraPosition.cameraWithLatitude(defaultLat, longitude: defaultLong, zoom: defaultZoom)
+    let googleMapView = GMSMapView.mapWithFrame(mapView.frame, camera: camera)
+    
+    self.view = googleMapView
+    
+    let marker = GMSMarker()
+    marker.position = CLLocationCoordinate2D(latitude: defaultLat, longitude: defaultLong)
+    marker.title = "Sydney"
+    marker.snippet = "Australia"
+    marker.map = googleMapView
+    
   }
 }
 

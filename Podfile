@@ -10,6 +10,7 @@ end
 
 target 'ShipTracked' do
   pod 'SwiftyJSON'
+  pod 'GoogleMaps'
   
   target 'ShipTrackedTests' do
     inherit! :search_paths
