@@ -13,7 +13,6 @@ lane :test do
 scan(
 scheme: "ShipTracked",
 workspace: "ShipTracked.xcworkspace",
-#project: "ShipTracked.xcodeproj",
 clean: true,
 code_coverage: true,
 skip_slack: true,
@@ -25,7 +24,6 @@ desc "Calculate test code coverage score. Need to run test beforehand."
 lane :report_test_coverage do
 xcov(
 workspace: "ShipTracked.xcworkspace",
-#project: "ShipTracked.xcodeproj",
 scheme: "ShipTracked",
 output_directory: "xcov_output"
 )
@@ -42,7 +40,6 @@ lock_when_sleeps: true,
 password: SecureRandom.base64
 )
 
-#Import distribution certificate
 import_certificate(
 certificate_path: "iosDeveloper.p12",
 certificate_password: ENV["KEY_PASSWORD"],
@@ -55,14 +52,12 @@ certificate_password: ENV["KEY_PASSWORD"],
 keychain_name: ENV["KEYCHAIN_NAME"]
 )
 
-#Fetch provisioning profile
 sigh(
 adhoc: false,
 username: ENV["ITUNES_CONNECT_USER"],
 cert_id: ENV["TEAM_ID"]
 )
 
-#increment_build_number
 set_info_plist_value(
 path: './ShipTracked/Info.plist',
 key: 'CFBundleVersion',
@@ -70,7 +65,6 @@ value: "#{number_of_commits}"
 )
 
 
-#build
 gym(
 scheme: "ShipTracked",
 configuration: "Release",
@@ -89,7 +83,6 @@ end
 desc "Submit a new beta build to App Store"
 lane :beta do
 
-#deploy to Testflight
 pilot(
 username: ENV["ITUNES_CONNECT_USER"],
 wait_processing_interval: 30,
