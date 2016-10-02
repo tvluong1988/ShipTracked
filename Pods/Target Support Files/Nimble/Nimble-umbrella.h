@@ -1,8 +1,5 @@
 #import <UIKit/UIKit.h>
 
-#import "DSL.h"
-#import "NMBExceptionCapture.h"
-#import "NMBStringify.h"
 #import "Nimble.h"
 
 FOUNDATION_EXPORT double NimbleVersionNumber;

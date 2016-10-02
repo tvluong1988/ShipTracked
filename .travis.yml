@@ -12,6 +12,8 @@ before_install:
 - gem install xcov --no-ri --no-rdoc --no-document
 - gem update fastlane --no-ri --no-rdoc --no-document
 - gem install aws-sdk --no-ri --no-rdoc --no-document
+- gem uninstall bundler -v '>1.12.5' --force || echo "bundler >1.12.5 is not installed"
+- gem install bundler -v 1.12.5 --no-rdoc --no-ri --no-document --quiet
 
 
 before_script:
